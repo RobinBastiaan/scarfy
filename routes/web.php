@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\ScarfController;
 use App\Http\Controllers\ScoutGroupController;
-use App\Models\Scarf;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,6 +9,6 @@ Route::get('/', function () {
 })->name('landingPage');
 
 Route::resources([
-    'scarfs' => Scarf::class,
+    'scarfs' => ScarfController::class,
     'groups' => ScoutGroupController::class,
 ]);

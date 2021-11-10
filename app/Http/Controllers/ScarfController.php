@@ -4,27 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Scarf;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ScarfController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        return view('scarfs', [
-            'user' => User::findOrFail($id)
+        return view('scarfs.index', [
+            'scarfs' => Scarf::all(),
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
         //
     }
@@ -32,10 +29,9 @@ class ScarfController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
      */
-    public function store(Request $request)
+    public function store(Request $request): View
     {
         //
     }
@@ -43,22 +39,21 @@ class ScarfController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Scarf  $scarf
+     * @param \App\Models\Scarf $scarf
      */
-    public function show(Scarf $scarf)
+    public function show(Scarf $scarf): View
     {
         return view('scarf', [
-            'user' => Scarf::findOrFail($scarf)
+            'scarf' => Scarf::findOrFail($scarf),
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Scarf  $scarf
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Scarf $scarf
      */
-    public function edit(Scarf $scarf)
+    public function edit(Scarf $scarf): View
     {
         //
     }
@@ -66,11 +61,10 @@ class ScarfController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Scarf  $scarf
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Scarf $scarf
      */
-    public function update(Request $request, Scarf $scarf)
+    public function update(Request $request, Scarf $scarf): View
     {
         //
     }
@@ -78,10 +72,9 @@ class ScarfController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Scarf  $scarf
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Scarf $scarf
      */
-    public function destroy(Scarf $scarf)
+    public function destroy(Scarf $scarf): View
     {
         //
     }
