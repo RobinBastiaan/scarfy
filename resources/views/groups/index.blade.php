@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main')
-    <h1 class="text-4xl font-bold mb-4">Scout Groups</h1>
+    <h1 class="text-4xl font-bold mb-4">{{ __('Scout Groups') }}</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6">
         @foreach ($groups as $group)
             <div class="rounded-lg shadow-lg bg-gray-100 flex flex-row flex-wrap p-3 antialiased">
