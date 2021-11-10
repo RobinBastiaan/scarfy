@@ -15,7 +15,7 @@ class CreateScarvesTable extends Migration
             $table->bigIncrements('id');
             $table->string('color_scheme');
             $table->integer('edge_size')->default(null)->nullable();
-            $table->integer('edge_color_scheme')->default(null)->nullable();
+            $table->string('edge_color_scheme')->default(null)->nullable();
             $table->timestamps();
         });
     }
