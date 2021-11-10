@@ -13,9 +13,9 @@ class ScarfSeeder extends Seeder
     public function run(): void
     {
         DB::table('scarves')->insert([
-            'color_scheme'      => '#FF4500',
+            'color_scheme'      => '#710B16',
             'edge_size'         => '20',
-            'edge_color_scheme' => '#800080',
+            'edge_color_scheme' => '#A89F99',
         ]);
 
         DB::table('scarves')->insert([
