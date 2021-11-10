@@ -9,6 +9,6 @@ Route::get('/', function () {
 })->name('landingPage');
 
 Route::resources([
-    'scarfs' => ScarfController::class,
-    'groups' => ScoutGroupController::class,
+    'scarves' => ScarfController::class,
+    'groups'  => ScoutGroupController::class,
 ]);

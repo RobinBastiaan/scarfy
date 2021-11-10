@@ -13,8 +13,8 @@ class ScarfController extends Controller
      */
     public function index(): View
     {
-        return view('scarfs.index', [
-            'scarfs' => Scarf::all(),
+        return view('scarves.index', [
+            'scarves' => Scarf::all(),
         ]);
     }
 

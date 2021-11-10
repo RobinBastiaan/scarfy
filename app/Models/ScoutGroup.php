@@ -14,7 +14,7 @@ class ScoutGroup extends Model
         'name', 'website', 'city', 'country', 'scarf_id',
     ];
 
-    public function scarves(): BelongsTo
+    public function scarf(): BelongsTo
     {
         return $this->belongsTo(Scarf::class);
     }

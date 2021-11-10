@@ -17,7 +17,7 @@
                 <img src="{{ asset('logo.png') }}" alt="Home" width="32px" height="32px" class="inline transition duration-500 ease-in-out transform hover:scale-110">
             </a>
         </li>
-        <li><a href="{{ asset('scarfs') }}" class="p-3 hover:text-gray-100">Scarfs</a></li>
+        <li><a href="{{ asset('scarves') }}" class="p-3 hover:text-gray-100">Scarves</a></li>
         <li><a href="{{ asset('groups') }}" class="p-3 hover:text-gray-100">Scout Groups</a></li>
     </ul>
 </nav>
