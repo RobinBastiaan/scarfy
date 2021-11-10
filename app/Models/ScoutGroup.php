@@ -10,6 +10,8 @@ class ScoutGroup extends Model
 {
     use HasFactory;
 
+    protected $with = ['scarf'];
+
     protected $fillable = [
         'name', 'website', 'city', 'country', 'scarf_id',
     ];
