@@ -52,6 +52,14 @@ class ScoutGroupSeeder extends Seeder
             'scarf_id' => 5,
         ]);
 
+        DB::table('scout_groups')->insert([
+            'name'     => 'De Geuzen',
+            'website'  => 'degeuzenarnhem.nl',
+            'city'     => 'Arnhem',
+            'country'  => 'Netherlands',
+            'scarf_id' => 6,
+        ]);
+
 //        DB::table('scout_groups')->insert([
 //            'name'     => '',
 //            'website'  => '',

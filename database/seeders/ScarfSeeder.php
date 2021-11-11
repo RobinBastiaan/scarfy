@@ -37,5 +37,9 @@ class ScarfSeeder extends Seeder
         DB::table('scarves')->insert([
             'color_scheme' => '#D39E82',
         ]);
+
+        DB::table('scarves')->insert([
+            'color_scheme' => 'balmoral',
+        ]);
     }
 }
