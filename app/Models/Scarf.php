@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Str;
 
 class Scarf extends Model
 {
@@ -26,7 +25,7 @@ class Scarf extends Model
     {
         $patterns = self::PATTERNS;
         array_walk($patterns, static function (&$value) {
-            $value = Str::snake($value);
+            $value = str_replace(' ', '_', strtolower($value));
         });
 
         return in_array($this->color_scheme, $patterns, true);

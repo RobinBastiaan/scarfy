@@ -14,7 +14,7 @@ class ScarfController extends Controller
     public function index(): View
     {
         return view('scarves.index', [
-            'scarves' => Scarf::all(),
+            'scarves' => Scarf::paginate(),
         ]);
     }
 

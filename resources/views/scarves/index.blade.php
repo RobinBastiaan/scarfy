@@ -7,4 +7,6 @@
             @include('scarves.show')
         @endforeach
     </div>
+
+    {{ $scarves->links() }}
 @endsection

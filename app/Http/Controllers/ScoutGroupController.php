@@ -14,7 +14,7 @@ class ScoutGroupController extends Controller
     public function index(): View
     {
         return view('groups.index', [
-            'groups' => ScoutGroup::all(),
+            'groups' => ScoutGroup::paginate(),
         ]);
     }
 

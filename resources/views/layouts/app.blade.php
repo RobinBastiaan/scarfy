@@ -19,7 +19,7 @@
         </li>
         <li><a href="{{ asset('scarves') }}" class="p-3 hover:text-gray-100">{{ __('Scarves') }}</a></li>
         <li><a href="{{ asset('groups') }}" class="p-3 hover:text-gray-100">{{ __('Scout Groups') }}</a></li>
-        <li><a href="{{ asset('about') }}" class="p-3 hover:text-gray-100">{{ __('About Scarfy') }}</a></li>
+        <li><a href="{{ asset('about') }}" class="p-3 hover:text-gray-100">{{ __('About') }}</a></li>
     </ul>
 </nav>
 

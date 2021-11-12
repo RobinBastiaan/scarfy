@@ -18,4 +18,6 @@
             </div>
         @endforeach
     </div>
+
+    {{ $groups->links() }}
 @endsection
