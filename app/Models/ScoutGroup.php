@@ -20,4 +20,17 @@ class ScoutGroup extends Model
     {
         return $this->belongsTo(Scarf::class);
     }
+
+    public function association(): BelongsTo
+    {
+        return $this->belongsTo(Association::class);
+    }
+
+    /*
+     * Prefix the website to make it a valid external url.
+     */
+    public function getWebsiteUrl(): ?string
+    {
+        return $this->website ? '//' . $this->website : null;
+    }
 }

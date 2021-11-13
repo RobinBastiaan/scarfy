@@ -38,14 +38,12 @@ class ScarfController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param \App\Models\Scarf $scarf
      */
-    public function show(Scarf $scarf): View
+    public function show(int $scarfId): View
     {
-        return view('scarf', [
-            'scarf' => Scarf::findOrFail($scarf),
-        ]);
+        $scarf = Scarf::with('scoutGroups')->findOrFail($scarfId);
+
+        return view('scarves.show', compact('scarf'));
     }
 
     /**

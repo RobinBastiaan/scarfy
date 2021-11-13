@@ -1,20 +1,16 @@
-<section class="rounded-lg m-1 p-1">
-    <svg viewBox="0 0 100 25">
-        <defs>
-            @if($scarf->has_pattern())
-                <pattern id="pattern{{ $scarf->id }}" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-                    <image href="{{ asset('patterns/' . $scarf->color_scheme . '.png') }}"/>
-                </pattern>
-                <polygon id="shape{{ $scarf->id }}" points="0 0, 100 0, 50 25" style="fill:url(#pattern{{ $scarf->id }})"/>
-            @else
-                <polygon id="shape{{ $scarf->id }}" points="0 0, 100 0, 50 25" style="fill:{{ $scarf->color_scheme }}"/>
-            @endif
-        </defs>
+@extends('layouts.main')
 
-        <use width="100" height="50" xlink:href="#shape{{ $scarf->id }}" fill="url(#pattern{{ $scarf->id }})"/>
+@section('main')
+    <h1 class="text-4xl font-bold mb-4">{{ __('Scarf') }}</h1>
 
-        @if($scarf->edge_size)
-            <polygon points="0 0, 10 0, 50 20, 90 0, 100 0, 50 25" style="fill:{{ $scarf->edge_color_scheme }}"/>
-        @endif
-    </svg>
-</section>
+    @include('components.scarf-card')
+
+    <section>
+        <h2 class="text-xl font-bold my-4">{{ __('Additional Information') }}</h2>
+    </section>
+
+    <div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Good') }}</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Wrong') }}</button>
+    </div>
+@endsection

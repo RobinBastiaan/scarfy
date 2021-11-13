@@ -1,14 +1,26 @@
-<div class="rounded-lg shadow-lg bg-gray-100 flex flex-row flex-wrap p-3 antialiased">
-    <div class="md:w-1/3 w-full">
-        @include('scarves.show', ['scarf' => $group->scarf])
+@extends('layouts.main')
+
+@section('main')
+    <h1 class="text-4xl font-bold mb-4">{{ __('Scout Group') }}</h1>
+
+    @include('components.group-card')
+
+    <section>
+        <h2 class="text-xl font-bold my-4">{{ __('Additional Information') }}</h2>
+        <dl>
+            <dt>{{ __('Association') }}</dt>
+            <dd>{{ $group->association->name }}</dd>
+            <dt>{{ __('Founded on') }}</dt>
+            <dd>{{ $group->founded_on }}</dd>
+            @if ($group->cencelled_on)
+                <dt>{{ __('Canceled on') }}</dt>
+                <dd>{{ $group->cencelled_on }}</dd>
+            @endif
+        </dl>
+    </section>
+
+    <div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Good') }}</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Wrong') }}</button>
     </div>
-    <div class="md:w-2/3 w-full px-3 flex flex-row flex-wrap">
-        <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
-            <div class="text-2xl text-gray-700 leading-tight">{{ $group->name }}</div>
-            <div class="text-normal text-gray-300 hover:text-gray-400 cursor-pointer">
-                <span class="border-b border-dashed border-gray-500 pb-1">{{ $group->city }}, {{ __($group->country) }}</span>
-            </div>
-            <div class="text-sm text-gray-300 hover:text-gray-400 cursor-pointer md:absolute pt-3 md:pt-0 bottom-0 right-0">{{ $group->website }}</div>
-        </div>
-    </div>
-</div>
+@endsection

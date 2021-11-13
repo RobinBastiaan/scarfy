@@ -38,12 +38,12 @@ class ScoutGroupController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param \App\Models\ScoutGroup $scoutGroup
      */
-    public function show(ScoutGroup $scoutGroup): View
+    public function show(int $scoutGroupId): View
     {
-        //
+        $group = ScoutGroup::with(['scarf', 'association'])->findOrFail($scoutGroupId);
+
+        return view('groups.show', compact('group'));
     }
 
     /**
