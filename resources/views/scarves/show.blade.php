@@ -6,7 +6,12 @@
     @include('components.scarf-card')
 
     <section>
-        <h2 class="text-xl font-bold my-4">{{ __('Additional Information') }}</h2>
+        <h2 class="text-xl font-bold my-4">{{ __('Scout Groups with this scarf') }}</h2>
+        <ul>
+        @foreach ($scarf->scoutGroups as $scoutGroup)
+                <li><a href="{{ route('groups.show', $scoutGroup->id) }}">{{ $scoutGroup->name }}</a></li>
+        @endforeach
+        </ul>
     </section>
 
     <div>

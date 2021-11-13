@@ -1,5 +1,5 @@
 <section class="rounded-lg m-1 p-1">
-    <a href="{{ url('scarves/' . $scarf->id) }}">
+    <a href="{{ route('scarves.show', $scarf->id) }}">
         <svg viewBox="0 0 100 25">
             <defs>
                 @if($scarf->has_pattern())
