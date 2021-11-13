@@ -25,7 +25,7 @@ class Scarf extends Model
     {
         $patterns = self::PATTERNS;
         array_walk($patterns, static function (&$value) {
-            $value = str_replace(' ', '_', strtolower($value));
+            $value = str_replace(' ', '-', strtolower($value));
         });
 
         return in_array($this->color_scheme, $patterns, true);
