@@ -39,9 +39,9 @@ class ScoutGroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $scoutGroupId): View
+    public function show(string $scoutGroupSlug): View
     {
-        $group = ScoutGroup::with(['scarf', 'association'])->findOrFail($scoutGroupId);
+        $group = ScoutGroup::with(['scarf', 'association'])->where('slug', $scoutGroupSlug)->firstOrfail();
 
         return view('groups.show', compact('group'));
     }

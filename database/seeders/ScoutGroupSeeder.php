@@ -14,6 +14,7 @@ class ScoutGroupSeeder extends Seeder
     {
         DB::table('scout_groups')->insert([
             'name'           => 'Scouting Franciscusgroep Leiden',
+            'slug'           => 'scouting-franciscusgroep-leiden',
             'website'        => 'franciscusgroep.nl',
             'city'           => 'Leiden',
             'country'        => 'Netherlands',
@@ -24,6 +25,7 @@ class ScoutGroupSeeder extends Seeder
 
         DB::table('scout_groups')->insert([
             'name'           => 'De Trappers',
+            'slug'           => 'de-trappers',
             'website'        => 'detrappershs.nl',
             'city'           => 'Hoogezand',
             'country'        => 'Netherlands',
@@ -34,6 +36,7 @@ class ScoutGroupSeeder extends Seeder
 
         DB::table('scout_groups')->insert([
             'name'           => 'Scouting Kompasnaald',
+            'slug'           => 'scouting-kompasnaald',
             'website'        => 'scoutingkompasnaald.nl',
             'city'           => 'Gorssel',
             'country'        => 'Netherlands',
@@ -44,6 +47,7 @@ class ScoutGroupSeeder extends Seeder
 
         DB::table('scout_groups')->insert([
             'name'           => 'Landelijk Team Spel',
+            'slug'           => 'landelijk-team-spel',
             'website'        => null,
             'city'           => 'Leusden',
             'country'        => 'Netherlands',
@@ -54,6 +58,7 @@ class ScoutGroupSeeder extends Seeder
 
         DB::table('scout_groups')->insert([
             'name'           => 'Gilwell',
+            'slug'           => 'gilwell',
             'website'        => 'gilwell.scouting.nl',
             'city'           => 'Ommen',
             'country'        => 'Netherlands',
@@ -64,6 +69,7 @@ class ScoutGroupSeeder extends Seeder
 
         DB::table('scout_groups')->insert([
             'name'           => 'De Geuzen',
+            'slug'           => 'de-geuzen',
             'website'        => 'degeuzenarnhem.nl',
             'city'           => 'Arnhem',
             'country'        => 'Netherlands',
@@ -74,6 +80,7 @@ class ScoutGroupSeeder extends Seeder
 
 //        DB::table('scout_groups')->insert([
 //            'name'           => '',
+//            'slug'           => '',
 //            'website'        => '',
 //            'city'           => '',
 //            'country'        => 'Netherlands',

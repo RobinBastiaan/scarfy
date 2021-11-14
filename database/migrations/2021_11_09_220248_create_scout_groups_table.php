@@ -14,6 +14,7 @@ class CreateScoutGroupsTable extends Migration
         Schema::create('scout_groups', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->string('website')->unique()->nullable();
             $table->string('city');
             $table->string('country');
