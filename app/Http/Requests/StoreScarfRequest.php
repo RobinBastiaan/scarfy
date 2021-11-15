@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Scarf;
 use App\Rules\ColorOrPattern;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -20,10 +21,18 @@ class StoreScarfRequest extends FormRequest
      */
     public function rules(): array
     {
+        $edgeRues = [];
+
+        for ($i = 1; $i <= Scarf::MAX_EDGES_PER_SCARF; $i++) {
+            $edgeRues['edge_size' . $i] = 'nullable|numeric|gt:0|lt:100';
+            $edgeRues['edge_color_scheme' . $i] = ['nullable', new ColorOrPattern()];
+            $edgeRues['edge_color_scheme_right' . $i] = ['nullable', new ColorOrPattern()];
+        }
+
         return [
-            'color_scheme'      => ['required', new ColorOrPattern()],
-            'edge_size'         => 'nullable|numeric|gt:0|lt:100',
-            'edge_color_scheme' => ['nullable', new ColorOrPattern()],
+            'color_scheme'       => ['required', new ColorOrPattern()],
+            'color_scheme_right' => ['nullable', new ColorOrPattern()],
+            $edgeRues,
         ];
     }
 

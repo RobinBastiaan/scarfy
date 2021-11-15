@@ -733,11 +733,14 @@
     "Add Your Scarf": "Voeg Das Toe",
     "Base": "Basis",
     "Edge": "Rand",
+    "Edge from outer to inner": "Randen van buiten naar binnen",
     "Color Scheme": "Kleuren Schema",
+    "Color Scheme Right": "Kleuren Schema Rechts",
     "Color or pattern": "Kleur of patroon",
     "Edge Size": "Rand Grootte",
     "In millimeters": "In millimeters",
     "Edge Color Scheme": "Rand Kleuren Schema",
+    "Edge Color Scheme Right": "Rand Kleuren Schema Rechts",
     "There were some problems with your input.": "Er waren wat problemen met de invoer.",
     "Scarf added successfully! Thanks for the swap ;)": "Sjaal succesvol toegevoegd! Bedankt voor het swappen ;)."
 }

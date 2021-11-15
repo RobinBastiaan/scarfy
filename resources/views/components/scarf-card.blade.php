@@ -1,22 +1,48 @@
 <section class="rounded-lg m-1 p-1">
     <a href="{{ route('scarves.show', $scarf->id) }}">
-        <svg viewBox="0 0 100 25">
+        <svg viewBox="0 0 {{ Scarf::WIDTH }} {{ Scarf::HEIGHT }}">
+            {{-- Pattern Definition --}}
             <defs>
                 @if($scarf->has_pattern())
                     <pattern id="pattern{{ $scarf->id }}" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
                         <image href="{{ asset('patterns/' . $scarf->color_scheme . '.png') }}"/>
                     </pattern>
-                    <polygon id="shape{{ $scarf->id }}" points="0 0, 100 0, 50 25" style="fill:url(#pattern{{ $scarf->id }})"/>
-                @else
-                    <polygon id="shape{{ $scarf->id }}" points="0 0, 100 0, 50 25" style="fill:{{ $scarf->color_scheme }}"/>
                 @endif
             </defs>
 
-            <use width="100" height="50" xlink:href="#shape{{ $scarf->id }}" fill="url(#pattern{{ $scarf->id }})"/>
-
-            @if($scarf->edge_size)
-                <polygon points="0 0, 10 0, 50 20, 90 0, 100 0, 50 25" style="fill:{{ $scarf->edge_color_scheme }}"/>
+            {{-- Base --}}
+            @if($scarf->has_pattern())
+                <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:url(#pattern{{ $scarf->id }})"/>
+            @else
+                <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme }}"/>
             @endif
+            @if($scarf->color_scheme_right)
+                @if($scarf->has_pattern('color_scheme_right'))
+                    <polygon points="{{ Scarf::WIDTH/2 }} 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:url(#pattern{{ $scarf->id }})"/>
+                @else
+                    <polygon points="{{ Scarf::WIDTH/2 }} 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme_right }}"/>
+                @endif
+            @endif
+
+            {{-- Edges --}}
+            @php $cumulativeEdgeSize = 0 @endphp
+            @for($i = 1; $i <= Scarf::MAX_EDGES_PER_SCARF; $i++)
+                @if($scarf->{'edge_size' . $i})
+                    <polygon points="{{ $cumulativeEdgeSize/4 }} 0, {{ ($scarf->{'edge_size' . $i} + $cumulativeEdgeSize)/4 }} 0,
+                        {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT - ($scarf->{'edge_size' . $i} + $cumulativeEdgeSize)/4 }},
+                        {{ Scarf::WIDTH - ($scarf->{'edge_size' . $i} + $cumulativeEdgeSize)/4 }} 0, {{ Scarf::WIDTH - $cumulativeEdgeSize/4 }} 0,
+                        {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT - $cumulativeEdgeSize/4 }}"
+                             style="fill:{{ $scarf->{'edge_color_scheme' . $i} }}"/>
+                @endif
+                @if($scarf->{'edge_color_scheme_right' . $i})
+                    <polygon points="
+                        {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT - ($scarf->{'edge_size' . $i} + $cumulativeEdgeSize)/4 }},
+                        {{ Scarf::WIDTH - ($scarf->{'edge_size' . $i} + $cumulativeEdgeSize)/4 }} 0, {{ Scarf::WIDTH - $cumulativeEdgeSize/4 }} 0,
+                        {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT - $cumulativeEdgeSize/4 }}"
+                             style="fill:{{ $scarf->{'edge_color_scheme_right' . $i} }}"/>
+                @endif
+                @php $cumulativeEdgeSize += $scarf->{'edge_size' . $i} @endphp
+            @endfor
         </svg>
     </a>
 </section>

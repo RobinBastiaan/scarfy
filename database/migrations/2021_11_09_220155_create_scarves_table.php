@@ -14,8 +14,19 @@ class CreateScarvesTable extends Migration
         Schema::create('scarves', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('color_scheme');
-            $table->integer('edge_size')->default(null)->nullable();
-            $table->string('edge_color_scheme')->default(null)->nullable();
+            $table->string('color_scheme_right')->default(null)->nullable();
+            $table->integer('edge_size1')->default(null)->nullable();
+            $table->string('edge_color_scheme1')->default(null)->nullable();
+            $table->string('edge_color_scheme_right1')->default(null)->nullable();
+            $table->integer('edge_size2')->default(null)->nullable();
+            $table->string('edge_color_scheme2')->default(null)->nullable();
+            $table->string('edge_color_scheme_right2')->default(null)->nullable();
+            $table->integer('edge_size3')->default(null)->nullable();
+            $table->string('edge_color_scheme3')->default(null)->nullable();
+            $table->string('edge_color_scheme_right3')->default(null)->nullable();
+            $table->integer('edge_size4')->default(null)->nullable();
+            $table->string('edge_color_scheme4')->default(null)->nullable();
+            $table->string('edge_color_scheme_right4')->default(null)->nullable();
             $table->timestamps();
         });
     }

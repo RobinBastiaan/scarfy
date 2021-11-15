@@ -78,6 +78,28 @@ class ScoutGroupSeeder extends Seeder
             'association_id' => 1,
         ]);
 
+        DB::table('scout_groups')->insert([
+            'name'           => 'Scouting Bennekom',
+            'slug'           => 'scouting-bennekom',
+            'website'        => 'scoutingbennekom.nl',
+            'city'           => 'Bennekom',
+            'country'        => 'Netherlands',
+            'founded_on'     => '1990-01-01',
+            'scarf_id'       => 7,
+            'association_id' => 1,
+        ]);
+
+        DB::table('scout_groups')->insert([
+            'name'           => 'Scouting Pegasus',
+            'slug'           => 'scouting-pegasus',
+            'website'        => null,
+            'city'           => 'Velp',
+            'country'        => 'Netherlands',
+            'founded_on'     => '2020-01-01',
+            'scarf_id'       => 8,
+            'association_id' => 1,
+        ]);
+
 //        DB::table('scout_groups')->insert([
 //            'name'           => '',
 //            'slug'           => '',
