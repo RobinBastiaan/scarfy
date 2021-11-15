@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreScarfRequest;
 use App\Models\Scarf;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -23,17 +25,18 @@ class ScarfController extends Controller
      */
     public function create(): View
     {
-        //
+        return view('scarves.create');
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
      */
-    public function store(Request $request): View
+    public function store(StoreScarfRequest $request): RedirectResponse
     {
-        //
+        Scarf::create($request->validated());
+
+        return redirect()->route('scarves.index')
+            ->with('success', __('Scarf added successfully! Thanks for the swap ;)'));
     }
 
     /**

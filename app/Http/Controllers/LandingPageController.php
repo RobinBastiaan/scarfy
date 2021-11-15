@@ -9,7 +9,7 @@ class LandingPageController extends Controller
 {
     public function __invoke()
     {
-        return view('landingPage', [
+        return view('landing-page', [
             'totalScarves'     => Scarf::all()->count(),
             'totalScoutGroups' => ScoutGroup::all()->count(),
             'recentAdditions'  => ScoutGroup::orderBy('created_at', 'DESC')->take(3)->get(),

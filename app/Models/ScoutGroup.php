@@ -15,7 +15,7 @@ class ScoutGroup extends Model
     protected $with = ['scarf'];
 
     protected $fillable = [
-        'name', 'website', 'city', 'country', 'scarf_id',
+        'name', 'website', 'city', 'country', 'founded_on', 'cancelled_on', 'association_id', 'scarf_id',
     ];
 
     public function scarf(): BelongsTo

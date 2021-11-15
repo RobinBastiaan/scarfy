@@ -728,5 +728,14 @@
     "Founded on": "Opgericht op",
     "Cancelled on": "Opgeheven op",
     "Looks Good": "Ziet er goed uit",
-    "Looks Wrong": "Ziet er verkeerd uit"
+    "Looks Wrong": "Ziet er verkeerd uit",
+
+    "Add Your Scarf": "Voeg Das Toe",
+    "Color Scheme": "Kleuren Schema",
+    "Color or pattern": "Kleur of patroon",
+    "Edge Size": "Rand Grootte",
+    "In millimeters": "In millimeters",
+    "Edge Color Scheme": "Rand Kleuren Schema",
+    "There were some problems with your input.": "Er waren wat problemen met de invoer.",
+    "Scarf added successfully! Thanks for the swap ;)": "Sjaal succesvol toegevoegd! Bedankt voor het swappen ;)."
 }

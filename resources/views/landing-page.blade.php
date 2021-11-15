@@ -4,7 +4,7 @@
     <section>
         <h2>Scarfy</h2>
         <p>{{ __('A community driven database of scouting scarves.') }}</p>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Add your scarf now!') }}</button>
+        <a class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('scarves.create') }}">{{ __('Add your scarf now!') }}</a>
         <img src="{{ asset('images/banner1.jpg') }}" width="600" alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}.">
     </section>
 
@@ -26,6 +26,6 @@
         @foreach ($recentAdditions as $group)
             @include('components.group-card', ['group', $group])
         @endforeach
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('View all scout groups') }}</button>
+        <a class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('groups.index') }}">{{ __('View all scout groups') }}</a>
     </section>
 @endsection
