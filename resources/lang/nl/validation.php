@@ -130,4 +130,6 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+
+    'color_or_pattern' => 'Het kleuren schema moet een kleur of een patroon zijn.',
 ];

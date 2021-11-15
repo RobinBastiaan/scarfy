@@ -6,12 +6,17 @@
     <form action="{{ route('scarves.store') }}" method="POST">
         @csrf
 
+        <h2 class="text-xl font-bold">{{ __('Base') }}</h2>
         <label for="color-scheme">{{ __('Color Scheme') }}</label>
         <input id="color-scheme" type="text" name="color_scheme" placeholder="{{ __('Color or pattern') }}" value="{{ old('color_scheme') }}">
+
+        <h2 class="text-xl font-bold">{{ __('Edge') }}</h2>
         <label for="edge-size">{{ __('Edge Size') }}</label>
         <input id="edge-size" type="text" name="edge_size" placeholder="{{ __('In millimeters') }}" value="{{ old('edge_size') }}">
         <label for="edge-color-scheme">{{ __('Edge Color Scheme') }}</label>
         <input id="edge-color-scheme" type="text" name="edge_color_scheme" placeholder="{{ __('Color or pattern') }}" value="{{ old('edge_color_scheme') }}">
+
+        <div class="clearfix"></div>
 
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Add') }}</button>
     </form>

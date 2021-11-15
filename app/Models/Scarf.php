@@ -21,6 +21,11 @@ class Scarf extends Model
         return $this->hasMany(ScoutGroup::class);
     }
 
+    public function setColorSchemeAttribute(string $colorScheme): void
+    {
+        $this->attributes['color_scheme'] = strtolower($colorScheme);
+    }
+
     public function has_pattern(): bool
     {
         $patterns = self::PATTERNS;

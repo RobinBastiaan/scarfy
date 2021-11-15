@@ -142,6 +142,8 @@ return [
         ],
     ],
 
+    'color_or_pattern' => 'The :attribute must be a color or a pattern.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

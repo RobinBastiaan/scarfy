@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ColorOrPattern;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreScarfRequest extends FormRequest
@@ -20,9 +21,9 @@ class StoreScarfRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'color_scheme'      => ['required', 'regex:/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/'],
+            'color_scheme'      => ['required', new ColorOrPattern()],
             'edge_size'         => 'nullable|numeric|gt:0|lt:100',
-            'edge_color_scheme' => ['nullable', 'regex:/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/'],
+            'edge_color_scheme' => ['nullable', new ColorOrPattern()],
         ];
     }
 
