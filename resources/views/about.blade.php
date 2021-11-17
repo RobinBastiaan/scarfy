@@ -10,7 +10,7 @@
             <p>Dit project is opgezet om deze grote diversiteit aan dassen te documenten en voor iedereen het gebruik van dassen ontdekbaar te maken. Doordat er alleen in Nederland al 1.000 groepen
                 zijn met elk hun eigen das, is het een hele opgave om alle dassen te verzamelen. Bovendien worden er continu scoutinggroepen opgericht en gefuseerd, en zullen er steeds nieuwe speciale
                 evenement dassen worden uitgegeven. Daarom is de hulp van eenieder die deze website bezoekt meer dan welkom en zo opgezet dat dit laagdrempelig kan.</p>
-            <p>Als je technisch aangelegd bent, kan je overwegen om <a href="{{ url('https://github.com/RobinBastiaan/scarfy') }}">bijdragen aan de code van dit project</a>.</p>
+            <p>Als je technisch aangelegd bent, kan je overwegen om <a href="{{ url('https://github.com/RobinBastiaan/scarfy') }}">bij te dragen aan de code van dit project</a>.</p>
         @else
             {{-- Default assume "en" locale --}}
             <p>A Scout Scarf is worn with pride by Scouts and is a true icon for Scouting. Besides protecting your neck from the sun, it also tells where you are from. Almost every group has a scarf
@@ -22,4 +22,6 @@
             <p>If you are technically inclined, you can consider <a href="{{ url('https://github.com/RobinBastiaan/scarfy') }}">contributing to the code of this project</a>.</p>
         @endif
     </article>
+
+    @include('components.socials')
 @endsection
