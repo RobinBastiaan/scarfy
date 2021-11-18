@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\ScoutGroup;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ScoutGroupSeeder extends Seeder
 {
@@ -12,114 +12,88 @@ class ScoutGroupSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('scout_groups')->insert([
-            'name'           => 'Scouting Franciscusgroep Leiden',
-            'slug'           => 'scouting-franciscusgroep-leiden',
-            'website'        => 'franciscusgroep.nl',
-            'city'           => 'Leiden',
-            'country'        => 'Netherlands',
-            'founded_on'     => '2000-01-01',
-            'scarf_id'       => 1,
-            'association_id' => 1,
+        /*
+         * Existing data
+         */
+
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting Franciscusgroep Leiden',
+            'website'    => 'franciscusgroep.nl',
+            'city'       => 'Leiden',
+            'country'    => 'Netherlands',
+            'founded_on' => '2000-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'De Trappers',
-            'slug'           => 'de-trappers',
-            'website'        => 'detrappershs.nl',
-            'city'           => 'Hoogezand',
-            'country'        => 'Netherlands',
-            'founded_on'     => '2000-01-01',
-            'scarf_id'       => 2,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'De Trappers',
+            'website'    => 'detrappershs.nl',
+            'city'       => 'Hoogezand',
+            'country'    => 'Netherlands',
+            'founded_on' => '2000-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'Scouting Kompasnaald',
-            'slug'           => 'scouting-kompasnaald',
-            'website'        => 'scoutingkompasnaald.nl',
-            'city'           => 'Gorssel',
-            'country'        => 'Netherlands',
-            'founded_on'     => '2000-01-01',
-            'scarf_id'       => 3,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting Kompasnaald',
+            'website'    => 'scoutingkompasnaald.nl',
+            'city'       => 'Gorssel',
+            'country'    => 'Netherlands',
+            'founded_on' => '2000-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'Landelijk Team Spel',
-            'slug'           => 'landelijk-team-spel',
-            'website'        => null,
-            'city'           => 'Leusden',
-            'country'        => 'Netherlands',
-            'founded_on'     => '2000-01-01',
-            'scarf_id'       => 4,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'Landelijk Team Spel',
+            'website'    => null,
+            'city'       => 'Leusden',
+            'country'    => 'Netherlands',
+            'founded_on' => '2000-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'Gilwell',
-            'slug'           => 'gilwell',
-            'website'        => 'gilwell.scouting.nl',
-            'city'           => 'Ommen',
-            'country'        => 'Netherlands',
-            'founded_on'     => '2000-01-01',
-            'scarf_id'       => 5,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'Gilwell',
+            'website'    => 'gilwell.scouting.nl',
+            'city'       => 'Ommen',
+            'country'    => 'Netherlands',
+            'founded_on' => '2000-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'De Geuzen',
-            'slug'           => 'de-geuzen',
-            'website'        => 'degeuzenarnhem.nl',
-            'city'           => 'Arnhem',
-            'country'        => 'Netherlands',
-            'founded_on'     => '2000-01-01',
-            'scarf_id'       => 6,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'De Geuzen',
+            'website'    => 'degeuzenarnhem.nl',
+            'city'       => 'Arnhem',
+            'country'    => 'Netherlands',
+            'founded_on' => '2000-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'Scouting Bennekom',
-            'slug'           => 'scouting-bennekom',
-            'website'        => 'scoutingbennekom.nl',
-            'city'           => 'Bennekom',
-            'country'        => 'Netherlands',
-            'founded_on'     => '1990-01-01',
-            'scarf_id'       => 7,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting Bennekom',
+            'website'    => 'scoutingbennekom.nl',
+            'city'       => 'Bennekom',
+            'country'    => 'Netherlands',
+            'founded_on' => '1990-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'Scouting Pegasus',
-            'slug'           => 'scouting-pegasus',
-            'website'        => null,
-            'city'           => 'Velp',
-            'country'        => 'Netherlands',
-            'founded_on'     => '2020-01-01',
-            'scarf_id'       => 8,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting Pegasus',
+            'website'    => null,
+            'city'       => 'Velp',
+            'country'    => 'Netherlands',
+            'founded_on' => '2020-01-01',
         ]);
 
-        DB::table('scout_groups')->insert([
-            'name'           => 'Scouting St. Jozef Leiden',
-            'slug'           => 'scouting-st.-jozef-leiden',
-            'website'        => 'stjozef.nl',
-            'city'           => 'Leiden',
-            'country'        => 'Netherlands',
-            'founded_on'     => '1980-01-01',
-            'scarf_id'       => 9,
-            'association_id' => 1,
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting St. Jozef Leiden',
+            'website'    => 'stjozef.nl',
+            'city'       => 'Leiden',
+            'country'    => 'Netherlands',
+            'founded_on' => '1980-01-01',
         ]);
 
-//        DB::table('scout_groups')->insert([
-//            'name'           => '',
-//            'slug'           => '',
-//            'website'        => '',
-//            'city'           => '',
-//            'country'        => 'Netherlands',
-//            'founded_on'     => '1900-01-01',
-//            'scarf_id'       => 999,
-//            'association_id' => 1,
-//        ]);
+        /*
+         * Random data
+         */
+
+        ScoutGroup::factory()
+            ->count(50)
+            ->create();
     }
 }

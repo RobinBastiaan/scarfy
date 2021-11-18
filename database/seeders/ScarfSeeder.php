@@ -2,67 +2,168 @@
 
 namespace Database\Seeders;
 
+use App\Models\Scarf;
+use Faker\Factory as Faker;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ScarfSeeder extends Seeder
 {
+    /**
+     * The current Faker instance.
+     *
+     * @var \Faker\Generator
+     */
+    protected $faker;
+
+    /**
+     * Create a new seeder instance.
+     */
+    public function __construct()
+    {
+        $this->faker = Faker::create();
+    }
+
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('scarves')->insert([
-            'color_scheme'       => '#710B16',
-            'edge_size1'         => '25',
-            'edge_color_scheme1' => '#A89F99',
-        ]);
+        /*
+         * Existing data
+         */
 
-        DB::table('scarves')->insert([
-            'color_scheme'       => '#2E8B57',
-            'edge_size1'         => '20',
-            'edge_color_scheme1' => '#8B4513',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('#710B16')
+            ->withBorder(25, '#A89F99')
+            ->create();
 
-        DB::table('scarves')->insert([
-            'color_scheme'       => '#132E8C',
-            'edge_size1'         => '20',
-            'edge_color_scheme1' => '#ADA44C',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('#2E8B57')
+            ->withBorder(20, '#8B4513')
+            ->create();
 
-        DB::table('scarves')->insert([
-            'color_scheme' => '#006400',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('#132E8C')
+            ->withBorder(20, '#ADA44C')
+            ->create();
 
-        DB::table('scarves')->insert([
-            'color_scheme' => '#D39E82',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('#006400')
+            ->create();
 
-        DB::table('scarves')->insert([
-            'color_scheme' => 'balmoral',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('#D39E82')
+            ->create();
 
-        DB::table('scarves')->insert([
-            'color_scheme'       => '#cc6600',
-            'color_scheme_right' => '#006600',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('balmoral')
+            ->create();
 
-        DB::table('scarves')->insert([
-            'color_scheme'       => '#131213',
-            'edge_size1'         => '10',
-            'edge_color_scheme1' => '#131213',
-            'edge_size2'         => '10',
-            'edge_color_scheme2' => '#CBBA9B',
-            'edge_size3'         => '10',
-            'edge_color_scheme3' => '#131213',
-            'edge_size4'         => '10',
-            'edge_color_scheme4' => '#7FAFC9',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('#cc6600')
+            ->withDiagonal('#006600')
+            ->create();
 
-        DB::table('scarves')->insert([
-            'color_scheme'       => '#d75754',
-            'edge_size1'         => '25',
-            'edge_color_scheme1' => '#8f8a9d',
-        ]);
+        Scarf::factory()
+            ->withBaseColor('#131213')
+            ->withBorder(10, '#131213')
+            ->withBorder(10, '#CBBA9B', 2)
+            ->withBorder(10, '#131213', 3)
+            ->withBorder(10, '#7FAFC9', 4)
+            ->create();
+
+        Scarf::factory()
+            ->withBaseColor('#d75754')
+            ->withBorder(25, '#8f8a9d')
+            ->create();
+
+        /*
+         * Random data
+         */
+
+        // basic
+        Scarf::factory()
+            ->count(10)
+            ->create();
+
+        // pattern
+        Scarf::factory()
+            ->count(10)
+            ->state(new Sequence(
+                fn($sequence) => ['color_scheme' => Scarf::PATTERNS[array_rand(Scarf::PATTERNS)]],
+            ))
+            ->create();
+
+        // diagonal
+        for ($i = 0; $i < 10; $i++) {
+            [$baseColor, $diagonalColor] = $this::randomUniqueColors();
+
+            Scarf::factory()
+                ->withBaseColor($baseColor)
+                ->withDiagonal($diagonalColor)
+                ->create();
+        }
+
+        // border
+        for ($i = 0; $i < 10; $i++) {
+            [$baseColor, $firstBorderColor] = $this::randomUniqueColors();
+
+            Scarf::factory()
+                ->withBaseColor($baseColor)
+                ->withBorder(25, $firstBorderColor)
+                ->create();
+        }
+
+        // border diagonal
+        for ($i = 0; $i < 10; $i++) {
+            [$baseColor, $diagonalColor, $firstBorderColor, $secondBorderColor] = $this::randomUniqueColors(4);
+
+            Scarf::factory()
+                ->withBaseColor($baseColor)
+                ->withDiagonal($diagonalColor)
+                ->withBorder(25, $firstBorderColor, 1, $secondBorderColor)
+                ->create();
+        }
+
+        // two colorful borders
+        for ($i = 0; $i < 10; $i++) {
+            [$baseColor, $firstBorderColor, $secondBorderColor] = $this::randomUniqueColors(3);
+
+            Scarf::factory()
+                ->withBaseColor($baseColor)
+                ->withBorder(20, $firstBorderColor, 1, $secondBorderColor)
+                ->withBorder(20, $secondBorderColor, 2, $firstBorderColor)
+                ->create();
+        }
+
+        // four borders
+        for ($i = 0; $i < 10; $i++) {
+            [$primaryColor, $secondaryColor] = $this::randomUniqueColors();
+
+            Scarf::factory()
+                ->withBaseColor($primaryColor)
+                ->withBorder(10, $primaryColor)
+                ->withBorder(10, $secondaryColor, 2)
+                ->withBorder(10, $primaryColor, 3)
+                ->withBorder(10, $secondaryColor, 4)
+                ->create();
+        }
+    }
+
+    /*
+     * Generate random colors and ensure all picked colors are unique.
+     */
+    private static function randomUniqueColors(int $amount = 2): array
+    {
+        $colors = Scarf::COLORS;
+        shuffle($colors);
+        $result = [];
+
+        for ($i = 0; $i < $amount; $i++) {
+            $result[] = array_pop($colors);
+        }
+
+        return $result;
     }
 }

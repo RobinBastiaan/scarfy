@@ -4,6 +4,9 @@ namespace Database\Factories;
 
 use App\Models\ScoutGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Str;
+use Locale;
 
 class ScoutGroupFactory extends Factory
 {
@@ -16,13 +19,20 @@ class ScoutGroupFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
+        $city = $this->faker->city();
+        $groupName = 'Scouting ' . $city;
+
         return [
-            //
+            'name'           => $groupName,
+            'website'        => Str::slug($groupName) . '.' . Config::get('app.locale'),
+            'city'           => $city,
+            'country'        => Locale::getDisplayRegion('-' . Config::get('app.locale'), 'en'),
+            'founded_on'     => $this->faker->dateTimeThisCentury('-30 years'),
+            'association_id' => 1,
+            'created_at'     => $this->faker->dateTime,
         ];
     }
 }

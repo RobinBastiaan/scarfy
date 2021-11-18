@@ -21,7 +21,6 @@ class CreateScoutGroupsTable extends Migration
             $table->date('founded_on');
             $table->date('cancelled_on')->nullable();
             $table->foreignId('association_id')->constrained();
-            $table->foreignId('scarf_id')->constrained();
             $table->timestamps();
         });
     }

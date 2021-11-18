@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -13,15 +14,28 @@ class ScoutGroup extends Model
 {
     use HasFactory, HasSlug;
 
-    protected $with = ['scarf'];
+    protected $with = ['scarfUsages'];
 
     protected $fillable = [
-        'name', 'website', 'city', 'country', 'founded_on', 'cancelled_on', 'association_id', 'scarf_id',
+        'name', 'website', 'city', 'country', 'founded_on', 'cancelled_on', 'association_id',
     ];
 
-    public function scarf(): BelongsTo
+    protected static function boot(): void
     {
-        return $this->belongsTo(Scarf::class);
+        parent::boot();
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('created_at');
+        });
+
+        static::addGlobalScope('hasScarfUsages', function (Builder $builder) {
+            $builder->has('scarfUsages');
+        });
+    }
+
+    public function scarfUsages(): HasMany
+    {
+        return $this->hasMany(ScarfUsage::class);
     }
 
     public function association(): BelongsTo
@@ -31,7 +45,7 @@ class ScoutGroup extends Model
 
     public function scopeRecentAdditions(Builder $query, int $amount = 3): void
     {
-        $query->orderBy('created_at', 'DESC')->take($amount);
+        $query->has('scarfUsages')->orderBy('created_at', 'DESC')->take($amount);
     }
 
     public function scopeNeighboringGroups(Builder $query, ScoutGroup $group): void

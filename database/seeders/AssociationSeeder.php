@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Association;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class AssociationSeeder extends Seeder
 {
@@ -12,10 +12,22 @@ class AssociationSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('associations')->insert([
+        /*
+         * Existing data
+         */
+
+        Association::factory()->create([
             'name'       => 'Scouting Nederland',
             'country'    => 'Netherlands',
             'founded_on' => '1911-04-01',
         ]);
+
+        /*
+         * Random data
+         */
+
+        Association::factory()
+            ->count(10)
+            ->create();
     }
 }

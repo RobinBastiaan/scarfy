@@ -3,7 +3,7 @@
         <svg viewBox="0 0 {{ Scarf::WIDTH }} {{ Scarf::HEIGHT }}">
             {{-- Pattern Definition --}}
             <defs>
-                @if($scarf->has_pattern())
+                @if($scarf->hasPattern())
                     <pattern id="pattern{{ $scarf->id }}" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
                         <image href="{{ asset('patterns/' . $scarf->color_scheme . '.png') }}"/>
                     </pattern>
@@ -11,13 +11,14 @@
             </defs>
 
             {{-- Base --}}
-            @if($scarf->has_pattern())
+            @if($scarf->hasPattern())
                 <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:url(#pattern{{ $scarf->id }})"/>
             @else
-                <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme }}"/>
+                <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}"
+                         style="fill:{{ $scarf->color_scheme }};@if($scarf->color_scheme === '#ffffff') {{ 'stroke:lightgrey;' }}@endif"/>
             @endif
             @if($scarf->color_scheme_right)
-                @if($scarf->has_pattern('color_scheme_right'))
+                @if($scarf->hasPattern('color_scheme_right'))
                     <polygon points="{{ Scarf::WIDTH/2 }} 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:url(#pattern{{ $scarf->id }})"/>
                 @else
                     <polygon points="{{ Scarf::WIDTH/2 }} 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme_right }}"/>

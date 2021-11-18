@@ -44,7 +44,7 @@ class ScarfController extends Controller
      */
     public function show(int $scarfId): View
     {
-        $scarf = Scarf::with('scoutGroups')->findOrFail($scarfId);
+        $scarf = Scarf::with('scarfUsages.scoutGroup')->findOrFail($scarfId);
 
         return view('scarves.show', compact('scarf'));
     }

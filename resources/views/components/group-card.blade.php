@@ -1,6 +1,6 @@
 <div class="rounded-lg shadow-lg bg-gray-100 flex flex-row flex-wrap p-3 antialiased">
     <div class="md:w-1/3 w-full">
-        @include('components.scarf-card', ['scarf' => $group->scarf])
+        @include('components.scarf-card', ['scarf' => $group->scarfUsages->first()->scarf])
     </div>
     <div class="md:w-2/3 w-full px-3 flex flex-row flex-wrap">
         <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">

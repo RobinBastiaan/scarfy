@@ -12,9 +12,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            ScarfUsageTypeSeeder::class,
             AssociationSeeder::class,
             ScarfSeeder::class,
             ScoutGroupSeeder::class,
+            ScarfUsageSeeder::class,
         ]);
     }
 }
