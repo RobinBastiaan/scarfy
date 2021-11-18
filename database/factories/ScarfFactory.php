@@ -20,7 +20,7 @@ class ScarfFactory extends Factory
     public function definition(): array
     {
         return [
-            'color_scheme' => Scarf::COLORS[array_rand(Scarf::COLORS)],
+            'color_scheme' => $this->faker->randomElement(Scarf::COLORS),
             'created_at'   => $this->faker->dateTime,
             // All other fields are omitted here as they optional. they can be filled using the other methods of this class
         ];

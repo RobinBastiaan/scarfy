@@ -84,14 +84,17 @@ class ScarfSeeder extends Seeder
 
         // basic
         Scarf::factory()
-            ->count(10)
+            ->count(count(Scarf::COLORS))
+            ->state(new Sequence(
+                fn($sequence) => ['color_scheme' => $this->faker->unique->randomElement(Scarf::COLORS)],
+            ))
             ->create();
 
         // pattern
         Scarf::factory()
-            ->count(10)
+            ->count(count(Scarf::PATTERNS))
             ->state(new Sequence(
-                fn($sequence) => ['color_scheme' => Scarf::PATTERNS[array_rand(Scarf::PATTERNS)]],
+                fn($sequence) => ['color_scheme' => $this->faker->unique->randomElement(Scarf::PATTERNS)],
             ))
             ->create();
 
