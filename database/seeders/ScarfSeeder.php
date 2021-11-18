@@ -58,5 +58,11 @@ class ScarfSeeder extends Seeder
             'edge_size4'         => '10',
             'edge_color_scheme4' => '#7FAFC9',
         ]);
+
+        DB::table('scarves')->insert([
+            'color_scheme'       => '#d75754',
+            'edge_size1'         => '25',
+            'edge_color_scheme1' => '#8f8a9d',
+        ]);
     }
 }

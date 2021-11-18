@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,6 +27,19 @@ class ScoutGroup extends Model
     public function association(): BelongsTo
     {
         return $this->belongsTo(Association::class);
+    }
+
+    public function scopeRecentAdditions(Builder $query, int $amount = 3): void
+    {
+        $query->orderBy('created_at', 'DESC')->take($amount);
+    }
+
+    public function scopeNeighboringGroups(Builder $query, ScoutGroup $group): void
+    {
+        $query->where([
+            ['city', $group->city],
+            ['id', '!=', $group->id],
+        ]);
     }
 
     /*

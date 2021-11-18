@@ -12,7 +12,7 @@ class LandingPageController extends Controller
         return view('landing-page', [
             'totalScarves'     => Scarf::all()->count(),
             'totalScoutGroups' => ScoutGroup::all()->count(),
-            'recentAdditions'  => ScoutGroup::orderBy('created_at', 'DESC')->take(3)->get(),
+            'recentAdditions'  => ScoutGroup::recentAdditions()->get(),
         ]);
     }
 }

@@ -23,4 +23,13 @@
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Good') }}</button>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Wrong') }}</button>
     </div>
+
+    @if ($neighboringGroups->isNotEmpty())
+        <section>
+            <h2 class="text-4xl font-bold mb-4">{{ __('Neighboring Scouting Groups') }}</h2>
+            @foreach ($neighboringGroups as $group)
+                @include('components.group-card', ['group', $group])
+            @endforeach
+        </section>
+    @endif
 @endsection

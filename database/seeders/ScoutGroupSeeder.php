@@ -100,6 +100,17 @@ class ScoutGroupSeeder extends Seeder
             'association_id' => 1,
         ]);
 
+        DB::table('scout_groups')->insert([
+            'name'           => 'Scouting St. Jozef Leiden',
+            'slug'           => 'scouting-st.-jozef-leiden',
+            'website'        => 'stjozef.nl',
+            'city'           => 'Leiden',
+            'country'        => 'Netherlands',
+            'founded_on'     => '1980-01-01',
+            'scarf_id'       => 9,
+            'association_id' => 1,
+        ]);
+
 //        DB::table('scout_groups')->insert([
 //            'name'           => '',
 //            'slug'           => '',
