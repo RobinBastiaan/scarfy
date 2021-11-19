@@ -29,7 +29,6 @@ class ScarfUsageFactory extends Factory
             'introduced_on'       => $this->faker->dateTimeThisCentury('-30 years'),
             'scarf_id'            => Scarf::withoutGlobalScopes()->get()->random()->id,
             'scout_group_id'      => ScoutGroup::withoutGlobalScopes()->get()->random()->id,
-            'scarf_usage_type_id' => random_int(1, $typesCount),
         ];
     }
 }

@@ -10,8 +10,6 @@ class ScarfUsage extends Model
 {
     use HasFactory;
 
-    protected $with = ['scarf'];
-
     protected $fillable = ['*'];
 
     public function scoutGroup(): BelongsTo
@@ -22,5 +20,10 @@ class ScarfUsage extends Model
     public function scarf(): BelongsTo
     {
         return $this->belongsTo(Scarf::class);
+    }
+
+    public function scarfUsageType(): BelongsTo
+    {
+        return $this->belongsTo(ScarfUsageType::class);
     }
 }

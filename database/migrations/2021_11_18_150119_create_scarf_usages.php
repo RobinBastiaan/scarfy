@@ -17,8 +17,8 @@ class CreateScarfUsages extends Migration
             $table->date('cancelled_on')->nullable();
             $table->foreignId('scarf_id')->constrained();
             $table->foreignId('scout_group_id')->constrained();
-            $table->foreignId('scarf_usage_type_id')->constrained();
-            $table->unique(['scout_group_id', 'scarf_usage_type_id']);
+            $table->foreignId('scarf_usage_type_id')->default(1)->constrained();
+            $table->unique(['scarf_id', 'scout_group_id']);
             $table->timestamps();
         });
     }

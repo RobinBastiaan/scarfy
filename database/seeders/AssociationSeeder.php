@@ -27,7 +27,7 @@ class AssociationSeeder extends Seeder
          */
 
         Association::factory()
-            ->count(10)
+            ->count(25)
             ->create();
     }
 }

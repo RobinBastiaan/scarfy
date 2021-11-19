@@ -19,7 +19,7 @@ class AssociationFactory extends Factory
      */
     public function definition(): array
     {
-        $country = $this->faker->country;
+        $country = $this->faker->unique->country;
 
         return [
             'name'       => 'Scouting ' . $country,

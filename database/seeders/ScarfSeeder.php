@@ -6,6 +6,7 @@ use App\Models\Scarf;
 use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Config;
 
 class ScarfSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class ScarfSeeder extends Seeder
      */
     public function __construct()
     {
-        $this->faker = Faker::create();
+        $this->faker = Faker::create('nl_NL');
     }
 
     /**
@@ -76,6 +77,11 @@ class ScarfSeeder extends Seeder
         Scarf::factory()
             ->withBaseColor('#d75754')
             ->withBorder(25, '#8f8a9d')
+            ->create();
+
+        Scarf::factory()
+            ->withBaseColor('#670299')
+            ->withBorder(25, '#ff8400')
             ->create();
 
         /*

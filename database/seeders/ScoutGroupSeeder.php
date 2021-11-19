@@ -3,10 +3,29 @@
 namespace Database\Seeders;
 
 use App\Models\ScoutGroup;
+use Faker\Factory as Faker;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Str;
 
 class ScoutGroupSeeder extends Seeder
 {
+    /**
+     * The current Faker instance.
+     *
+     * @var \Faker\Generator
+     */
+    protected $faker;
+
+    /**
+     * Create a new seeder instance.
+     */
+    public function __construct()
+    {
+        $this->faker = Faker::create('nl_NL');
+    }
+
     /**
      * Run the database seeds.
      */
@@ -94,6 +113,17 @@ class ScoutGroupSeeder extends Seeder
 
         ScoutGroup::factory()
             ->count(50)
+            ->state(new Sequence(
+                function ($sequence) {
+                    $city = $this->faker->unique->city();
+                    $groupName = 'Scouting ' . $city;
+                    return [
+                        'name'    => $groupName,
+                        'website' => Str::slug($groupName) . '.' . Config::get('app.locale'),
+                        'city'    => $city,
+                    ];
+                }
+            ))
             ->create();
     }
 }

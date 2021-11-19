@@ -13,4 +13,9 @@ class ScarfUsageType extends Model
     protected $fillable = ['*'];
 
     public const TYPES = ['group', 'regional', 'national', 'event', 'special', 'anniversary'];
+
+    public function scarfUsages(): HasMany
+    {
+        return $this->hasMany(ScarfUsage::class);
+    }
 }

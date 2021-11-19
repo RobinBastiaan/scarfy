@@ -14,7 +14,7 @@ class ScoutGroup extends Model
 {
     use HasFactory, HasSlug;
 
-    protected $with = ['scarfUsages'];
+    protected $with = ['scarfUsages.scarf'];
 
     protected $fillable = [
         'name', 'website', 'city', 'country', 'founded_on', 'cancelled_on', 'association_id',

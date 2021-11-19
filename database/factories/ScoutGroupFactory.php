@@ -22,7 +22,7 @@ class ScoutGroupFactory extends Factory
      */
     public function definition(): array
     {
-        $city = $this->faker->city();
+        $city = $this->faker->unique->city();
         $groupName = 'Scouting ' . $city;
 
         return [
