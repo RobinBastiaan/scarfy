@@ -26,26 +26,33 @@ class ScarfFactory extends Factory
         ];
     }
 
-    public function withBaseColor(string $colorScheme)
+    public function withBaseColor(string $colorScheme): Factory
     {
         return $this->state([
             'color_scheme' => $colorScheme,
         ]);
     }
 
-    public function withDiagonal(string $colorScheme)
+    public function withDiagonal(string $colorScheme): Factory
     {
         return $this->state([
             'color_scheme_right' => $colorScheme,
         ]);
     }
 
-    public function withBorder(int $edgeSize, string $colorScheme, int $borderCount = 1, string $colorSchemeRight = null)
+    public function withBorder(int $edgeSize, string $colorScheme, int $borderCount = 1, string $colorSchemeRight = null): Factory
     {
         return $this->state([
             'edge_size' . $borderCount               => $edgeSize,
             'edge_color_scheme' . $borderCount       => $colorScheme,
             'edge_color_scheme_right' . $borderCount => $colorSchemeRight,
+        ]);
+    }
+
+    public function withImage(string $extension): Factory
+    {
+        return $this->state([
+            'image_path' => $extension,
         ]);
     }
 }

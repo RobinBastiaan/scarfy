@@ -33,6 +33,7 @@ class StoreScarfRequest extends FormRequest
             'color_scheme'       => ['required', new ColorOrPattern()],
             'color_scheme_right' => ['nullable', new ColorOrPattern()],
             $edgeRues,
+            'image' => 'mimes:png,jpg,jpeg|max:5048'
         ];
     }
 
@@ -48,9 +49,19 @@ class StoreScarfRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        // prefix with "#", if the given color would be valid if it started with a "#"
-        $colorProperties = ['color_scheme' => $this->color_scheme, 'edge_color_scheme' => $this->edge_color_scheme];
+        $this->prefixValidColors([
+            'color_scheme'      => $this->color_scheme,
+            'edge_color_scheme' => $this->edge_color_scheme,
+        ]);
+    }
 
+    /**
+     * Prefix with "#", if the given color would be valid if it started with a "#".
+     *
+     * @param array $colorProperties
+     */
+    private function prefixValidColors(array $colorProperties): void
+    {
         foreach ($colorProperties as $key => $value) {
             if (preg_match('/^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $value)) {
                 $this->merge([

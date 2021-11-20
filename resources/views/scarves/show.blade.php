@@ -7,11 +7,15 @@
 
     <section>
         <h2 class="text-xl font-bold my-4">{{ __('Scout Groups with this scarf') }}</h2>
-        <ul>
+        <table>
             @foreach ($scarf->scarfUsages as $scarfUsage)
-                <li><a href="{{ route('groups.show', $scarfUsage->scoutGroup->slug) }}">{{ $scarfUsage->scoutGroup->name }}</a></li>
+                <tr>
+                    <td><a href="{{ route('groups.show', $scarfUsage->scoutGroup->slug) }}">{{ $scarfUsage->scoutGroup->name }}</a></td>
+                    <td>{{ __(ucfirst($scarfUsage->scarfUsageType->name)) }} {{ __('Scarf') }}</td>
+                    <td>@if($scarfUsage->cancelled_on) {{ __('Cancelled on') }} {{ $scarfUsage->cancelled_on }} @endif</td>
+                </tr>
             @endforeach
-        </ul>
+        </table>
     </section>
 
     <div>

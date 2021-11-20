@@ -33,7 +33,14 @@ class ScarfController extends Controller
      */
     public function store(StoreScarfRequest $request): RedirectResponse
     {
-        Scarf::create($request->validated());
+        $validated = $request->validated();
+
+        $addedObject = Scarf::create($validated + [
+                'image_path' => $request->image->extension(),
+            ]);
+
+        $newImageName = $addedObject->id . '.' . $request->image->extension();
+        $request->image->move(public_path('uploads'), $newImageName);
 
         return redirect()->route('scarves.index')
             ->with('success', __('Scarf added successfully! Thanks for the swap ;)'));

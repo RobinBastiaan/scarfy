@@ -27,6 +27,7 @@ class CreateScarvesTable extends Migration
             $table->integer('edge_size4')->default(null)->nullable();
             $table->string('edge_color_scheme4')->default(null)->nullable();
             $table->string('edge_color_scheme_right4')->default(null)->nullable();
+            $table->string('image_path')->default(null)->nullable();
             $table->timestamps();
         });
     }
