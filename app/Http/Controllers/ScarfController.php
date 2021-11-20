@@ -35,12 +35,18 @@ class ScarfController extends Controller
     {
         $validated = $request->validated();
 
-        $addedObject = Scarf::create($validated + [
+        if ($request->has('image')) {
+            $validated += [
                 'image_path' => $request->image->extension(),
-            ]);
+            ];
+        }
 
-        $newImageName = $addedObject->id . '.' . $request->image->extension();
-        $request->image->move(public_path('uploads'), $newImageName);
+        $addedObject = Scarf::create($validated);
+
+        if ($request->has('image')) {
+            $newImageName = $addedObject->id . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads'), $newImageName);
+        }
 
         return redirect()->route('scarves.index')
             ->with('success', __('Scarf added successfully! Thanks for the swap ;)'));

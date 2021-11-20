@@ -33,7 +33,10 @@ class StoreScarfRequest extends FormRequest
             'color_scheme'       => ['required', new ColorOrPattern()],
             'color_scheme_right' => ['nullable', new ColorOrPattern()],
             $edgeRues,
-            'image' => 'mimes:png,jpg,jpeg|max:5048'
+            'image'              => 'mimes:png,jpg,jpeg|max:5048',
+            'text'               => ['nullable', 'string'],
+            'text_color'         => ['nullable', new ColorOrPattern()],
+            'text_font'          => ['nullable', 'string'],
         ];
     }
 
@@ -52,6 +55,7 @@ class StoreScarfRequest extends FormRequest
         $this->prefixValidColors([
             'color_scheme'      => $this->color_scheme,
             'edge_color_scheme' => $this->edge_color_scheme,
+            'text_color'        => $this->text_color,
         ]);
     }
 

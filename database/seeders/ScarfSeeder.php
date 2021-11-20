@@ -6,7 +6,6 @@ use App\Models\Scarf;
 use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Config;
 
 class ScarfSeeder extends Seeder
 {
@@ -52,6 +51,7 @@ class ScarfSeeder extends Seeder
 
         Scarf::factory()
             ->withBaseColor('#006400')
+            ->withText('SPEL', '#aadb1e', 'Impact')
             ->create();
 
         Scarf::factory()

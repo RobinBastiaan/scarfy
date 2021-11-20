@@ -49,6 +49,10 @@
                 <image href="{{ asset('uploads/' . $scarf->id . '.' . $scarf->image_path) }}" alt="" height="10px"
                        width="10px" y="{{ Scarf::HEIGHT - 14 - $cumulativeEdgeSize/4}}" x="50%" transform="translate(-5)"/>
             @endif
+
+            @if($scarf->text)
+                <text x="5" y="62" transform="rotate(-45)" style="fill: {{ $scarf->text_color }}; font: bold 10px {{ $scarf->text_font }}">{{ $scarf->text }}</text>
+            @endif
         </svg>
     </a>
 </section>

@@ -25,7 +25,18 @@
 
         <div class="clearfix"></div>
 
+        <h2 class="text-xl font-bold">{{ __('Badge') }}</h2>
         <input type="file" name="image" class="block shadow-5xl md-10 p-2 w-80 italic placeholder-gray-400">
+
+        <div class="clearfix"></div>
+
+        <h2 class="text-xl font-bold">{{ __('Text') }}</h2>
+        <label for="text">{{ __('Text') }}</label>
+        <input id="text" type="text" name="text" placeholder="" value="{{ old('text') }}">
+        <label for="text-color">{{ __('Text Color') }}</label>
+        <input id="text-color" type="text" name="text_color" placeholder="" value="{{ old('text_color') }}">
+        <label for="text-font">{{ __('Text Font') }}</label>
+        <input id="text-font" type="text" name="text_font" placeholder="" value="{{ old('text_font') }}">
 
         <div class="clearfix"></div>
 

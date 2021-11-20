@@ -55,4 +55,13 @@ class ScarfFactory extends Factory
             'image_path' => $extension,
         ]);
     }
+
+    public function withText(string $text, string $color, string $font): Factory
+    {
+        return $this->state([
+            'text'  => $text,
+            'text_color' => $color,
+            'text_font'  => $font,
+        ]);
+    }
 }
