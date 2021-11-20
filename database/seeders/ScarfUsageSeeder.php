@@ -86,7 +86,7 @@ class ScarfUsageSeeder extends Seeder
             ->sequence(fn($sequence) => [
                 'scarf_id'       => 10,
                 'scout_group_id' => 1,
-                'cancelled_on'   => Carbon::create('1980', '01', '01'),
+                'used_until'     => Carbon::create('1980', '01', '01'),
             ])
             ->create();
 

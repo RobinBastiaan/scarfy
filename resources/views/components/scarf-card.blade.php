@@ -46,7 +46,8 @@
             @endfor
 
             @if($scarf->image_path)
-                <image href="{{ asset('uploads/' . $scarf->id . '.' . $scarf->image_path) }}" alt="" height="10px" width="10px" y="{{ Scarf::HEIGHT - 14 - $cumulativeEdgeSize/4}}" x="50%" transform="translate(-5)"/>
+                <image href="{{ asset('uploads/' . $scarf->id . '.' . $scarf->image_path) }}" alt="" height="10px"
+                       width="10px" y="{{ Scarf::HEIGHT - 14 - $cumulativeEdgeSize/4}}" x="50%" transform="translate(-5)"/>
             @endif
         </svg>
     </a>

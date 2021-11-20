@@ -12,7 +12,7 @@
                 <tr>
                     <td><a href="{{ route('groups.show', $scarfUsage->scoutGroup->slug) }}">{{ $scarfUsage->scoutGroup->name }}</a></td>
                     <td>{{ __(ucfirst($scarfUsage->scarfUsageType->name)) }} {{ __('Scarf') }}</td>
-                    <td>@if($scarfUsage->cancelled_on) {{ __('Cancelled on') }} {{ $scarfUsage->cancelled_on }} @endif</td>
+                    <td>@if($scarfUsage->used_until) {{ __('Used Until') }} {{ $scarfUsage->used_until }} @endif</td>
                 </tr>
             @endforeach
         </table>

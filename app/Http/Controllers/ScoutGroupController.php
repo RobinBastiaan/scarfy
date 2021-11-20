@@ -42,7 +42,7 @@ class ScoutGroupController extends Controller
     public function show(string $scoutGroupSlug): View
     {
         $group = ScoutGroup::with(['association', 'scarfUsages' => function ($q) {
-            $q->orderBy('cancelled_on')->orderBy('scarf_usage_type_id');
+            $q->orderBy('used_until')->orderBy('scarf_usage_type_id');
         }])->where('slug', $scoutGroupSlug)->firstOrfail();
         $neighboringGroups = ScoutGroup::neighboringGroups($group)->get();
 
