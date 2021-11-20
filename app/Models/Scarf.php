@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Scarf extends Model
 {
@@ -53,5 +54,44 @@ class Scarf extends Model
         });
 
         return in_array($this->$property, $patterns, true);
+    }
+
+    public function scopeFilter(Builder $query, Request $request): void
+    {
+        if (isset($request->with_diagonal) && $request->with_diagonal === '0') {
+            $query->where([
+                ['color_scheme_right', null],
+            ]);
+        }
+
+        if (isset($request->without_diagonal) && $request->without_diagonal === '0') {
+            $query->where([
+                ['color_scheme_right', '!=', null],
+            ]);
+        }
+
+        if (isset($request->with_border) && $request->with_border === '0') {
+            $query->where([
+                ['edge_size1', null],
+            ]);
+        }
+
+        if (isset($request->without_border) && $request->without_border === '0') {
+            $query->where([
+                ['edge_size1', '!=', null],
+            ]);
+        }
+
+        if (isset($request->with_image) && $request->with_image === '0') {
+            $query->where([
+                ['image_path', null],
+            ]);
+        }
+
+        if (isset($request->without_image) && $request->without_image === '0') {
+            $query->where([
+                ['image_path', '!=', null],
+            ]);
+        }
     }
 }

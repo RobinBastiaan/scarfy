@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -80,5 +81,20 @@ class ScoutGroup extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function scopeFilter(Builder $query, Request $request): void
+    {
+        if (isset($request->name)) {
+            $query->where([
+                ['name', 'LIKE', "%{$request->name}%"],
+            ]);
+        }
+
+        if (isset($request->city)) {
+            $query->where([
+                ['city', 'LIKE', "%{$request->city}%"],
+            ]);
+        }
     }
 }

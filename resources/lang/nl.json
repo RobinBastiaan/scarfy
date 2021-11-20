@@ -735,6 +735,14 @@
     "Looks Good": "Ziet er goed uit",
     "Looks Wrong": "Ziet er verkeerd uit",
 
+    "With Diagonal": "Met diagonaal",
+    "Without Diagonal": "Zonder diagonaal",
+    "With Border": "Met rand",
+    "Without Border": "Zonder rand",
+    "With Image": "Met afbeelding",
+    "Without Image": "Zonder afbeelding",
+    "Search": "Zoeken",
+
     "Group": "Groeps",
     "Regional": "Regionale",
     "National": "Nationale",

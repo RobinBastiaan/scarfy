@@ -56,6 +56,7 @@ class ScarfSeeder extends Seeder
 
         Scarf::factory()
             ->withBaseColor('#D39E82')
+            ->withImage('png')
             ->create();
 
         Scarf::factory()
@@ -78,6 +79,7 @@ class ScarfSeeder extends Seeder
         Scarf::factory()
             ->withBaseColor('#d75754')
             ->withBorder(25, '#8f8a9d')
+            ->withImage('png')
             ->create();
 
         Scarf::factory()

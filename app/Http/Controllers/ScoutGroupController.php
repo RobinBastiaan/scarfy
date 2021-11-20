@@ -11,10 +11,10 @@ class ScoutGroupController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         return view('groups.index', [
-            'groups' => ScoutGroup::paginate(),
+            'groups' => ScoutGroup::filter($request)->paginate()->appends(request()->query()),
         ]);
     }
 

@@ -13,10 +13,10 @@ class ScarfController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         return view('scarves.index', [
-            'scarves' => Scarf::paginate(),
+            'scarves' => Scarf::filter($request)->paginate()->appends(request()->query()),
         ]);
     }
 
