@@ -34,6 +34,10 @@ class Scarf extends Model
         static::addGlobalScope('order', function (Builder $builder) {
             $builder->orderBy('created_at');
         });
+
+        static::addGlobalScope('whereHas', function (Builder $builder) {
+            $builder->whereHas('scarfUsages');
+        });
     }
 
     public function scarfUsages(): HasMany

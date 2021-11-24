@@ -89,6 +89,12 @@ class RealDataSeeder extends Seeder
             ->withImage('png')
             ->create();
 
+        // scouting talent
+        Scarf::factory()
+            ->withBaseColor('#fff')
+            ->withImage('png')
+            ->create();
+
         /*
          * ScoutGroup
          */
@@ -165,6 +171,14 @@ class RealDataSeeder extends Seeder
             'founded_on' => '1980-01-01',
         ]);
 
+        ScoutGroup::factory()->create([
+            'name'       => 'Programma Scouting Talent',
+            'website'    => 'scouting.nl/scouting-academy/talentontwikkeling/pst',
+            'city'       => 'Ommen',
+            'country'    => 'Netherlands',
+            'founded_on' => '2009-01-01',
+        ]);
+
         /*
          * ScarfUsage
          */
@@ -239,6 +253,14 @@ class RealDataSeeder extends Seeder
                 'scarf_id'       => 10,
                 'scout_group_id' => 1,
                 'used_until'     => Carbon::create('1980', '01', '01'),
+            ])
+            ->create();
+
+        ScarfUsage::factory()
+            ->sequence(fn($sequence) => [
+                'scarf_id'            => 11,
+                'scout_group_id'      => 10,
+                'scarf_usage_type_id' => 5,
             ])
             ->create();
     }

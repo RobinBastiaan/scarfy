@@ -15,7 +15,7 @@
                 <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:url(#pattern{{ $scarf->id }})"/>
             @else
                 <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}"
-                         style="fill:{{ $scarf->color_scheme }};@if($scarf->color_scheme === '#ffffff') {{ 'stroke:lightgrey;' }}@endif"/>
+                         style="fill:{{ $scarf->color_scheme }};@if($scarf->color_scheme === '#ffffff' || $scarf->color_scheme === '#fff') {{ 'stroke:lightgrey;' }}@endif"/>
             @endif
             @if($scarf->color_scheme_right)
                 @if($scarf->hasPattern('color_scheme_right'))
