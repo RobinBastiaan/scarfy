@@ -33,6 +33,7 @@ class ScoutGroupFactory extends Factory
             'founded_on'     => $this->faker->dateTimeThisCentury('-30 years'),
             'association_id' => 1,
             'created_at'     => $this->faker->dateTime,
+            // we do not need to define the field "slug", because this is handled automatically in the model
         ];
     }
 }

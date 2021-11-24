@@ -2,19 +2,23 @@
 
 namespace Database\Seeders;
 
+use App\Models\Association;
 use App\Models\Scarf;
+use App\Models\ScarfUsage;
+use App\Models\ScoutGroup;
 use Faker\Factory as Faker;
+use Faker\Generator;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Str;
 
-class ScarfSeeder extends Seeder
+class RandomDataSeeder extends Seeder
 {
     /**
      * The current Faker instance.
-     *
-     * @var \Faker\Generator
      */
-    protected $faker;
+    protected Generator $faker;
 
     /**
      * Create a new seeder instance.
@@ -25,71 +29,24 @@ class ScarfSeeder extends Seeder
     }
 
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      */
     public function run(): void
     {
+        $this->call([
+            ScarfUsageTypeSeeder::class,
+        ]);
+
         /*
-         * Existing data
+         * Association
          */
 
-        Scarf::factory()
-            ->withBaseColor('#762d4e')
-            ->withBorder(25, '#d0d7d7')
-            ->withImage('png')
+        Association::factory()
+            ->count(25)
             ->create();
 
-        Scarf::factory()
-            ->withBaseColor('#2E8B57')
-            ->withBorder(20, '#8B4513')
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('#132E8C')
-            ->withBorder(20, '#ADA44C')
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('#006400')
-            ->withText('SPEL', '#aadb1e', 'Impact')
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('#D39E82')
-            ->withImage('png')
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('balmoral')
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('#cc6600')
-            ->withDiagonal('#006600')
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('#131213')
-            ->withBorder(10, '#131213')
-            ->withBorder(10, '#CBBA9B', 2)
-            ->withBorder(10, '#131213', 3)
-            ->withBorder(10, '#7FAFC9', 4)
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('#d9390d')
-            ->withBorder(25, '#2a1ad5')
-            ->withImage('png')
-            ->create();
-
-        Scarf::factory()
-            ->withBaseColor('#6e4b16')
-            ->withBorder(25, '#ff8400')
-            ->withImage('png')
-            ->create();
-
-        /*
-         * Random data
+        /**
+         * Scarf
          */
 
         // basic
@@ -162,6 +119,37 @@ class ScarfSeeder extends Seeder
                 ->withBorder(10, $secondaryColor, 4)
                 ->create();
         }
+
+        /*
+         * ScoutGroup
+         */
+
+        ScoutGroup::factory()
+            ->count(50)
+            ->state(new Sequence(
+                function () {
+                    $city = $this->faker->unique->city();
+                    $groupName = 'Scouting ' . $city;
+                    return [
+                        'name'    => $groupName,
+                        'website' => Str::slug($groupName) . '.' . Config::get('app.locale'),
+                        'city'    => $city,
+                    ];
+                }
+            ))
+            ->create();
+
+        /*
+         * ScarfUsage
+         */
+
+        ScarfUsage::factory()
+            ->count(50)
+            ->sequence(fn($sequence) => [
+                'scarf_id'       => $sequence->index + 10,
+                'scout_group_id' => $sequence->index + 10,
+            ])
+            ->create();
     }
 
     /*
