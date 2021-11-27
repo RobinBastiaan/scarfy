@@ -132,4 +132,5 @@ return [
     ],
 
     'color_or_pattern' => 'Het kleuren schema moet een kleur of een patroon zijn.',
+    'name.common' => 'Het land moet een geldig land zijn.',
 ];

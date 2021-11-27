@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreScoutGroupRequest;
 use App\Models\ScoutGroup;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -23,17 +25,20 @@ class ScoutGroupController extends Controller
      */
     public function create(): View
     {
-        //
+        return view('groups.create');
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
      */
-    public function store(Request $request): View
+    public function store(StoreScoutGroupRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        ScoutGroup::create($validated);
+
+        return redirect()->route('groups.index')
+            ->with('success', __('Scouting Group added successfully!'));
     }
 
     /**
