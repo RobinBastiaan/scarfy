@@ -24,7 +24,7 @@
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Wrong') }}</button>
     </div>
 
-    @php $group->scarfUsages->shift() @endphp {{-- Remove the first/main scarf, to only display the other scarfs of this group --}}
+    @php $group->scarfUsages->shift() @endphp {{-- Remove the first/main scarf, to only display the other scarves of this group --}}
     @if ($group->scarfUsages->isNotEmpty())
         <section>
             <h2 class="text-xl font-bold mb-4">{{ __('Other Scarves Of This Scouting Group') }}</h2>

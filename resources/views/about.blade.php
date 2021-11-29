@@ -14,10 +14,10 @@
         @else
             {{-- Default assume "en" locale --}}
             <p>A Scout Scarf is worn with pride by Scouts and is a true icon for Scouting. Besides protecting your neck from the sun, it also tells where you are from. Almost every group has a scarf
-                which looks unique with the use of different colours, patterns, text and even a badge of the scouting group. Besides the fact that a scarf is used by a group, scarfs are used by
+                which looks unique with the use of different colours, patterns, text and even a badge of the scouting group. Besides the fact that a scarf is used by a group, scarves are used by
                 scouting regions, national teams and even at special (in)ternational Scouting events.</p>
-            <p>This project has been set up to document this great diversity of scarfs and to make the use of scarfs discoverable for everyone. World wide there are thousands of scouting groups, each
-                with their own scarf, and this it is quite a task to collect all scarfs. Moreover, scouting groups are constantly being founded and merged, and new special event ties will be issued
+            <p>This project has been set up to document this great diversity of scarves and to make the use of scarves discoverable for everyone. World wide there are thousands of scouting groups, each
+                with their own scarf, and this it is quite a task to collect all scarves. Moreover, scouting groups are constantly being founded and merged, and new special event ties will be issued
                 all the time. Therefore, the help of everyone who visits this website is more than welcome and set up in such a way that this can be done easily.</p>
             <p>If you are technically inclined, you can consider <a href="{{ url('https://github.com/RobinBastiaan/scarfy') }}">contributing to the code of this project</a>.</p>
         @endif
