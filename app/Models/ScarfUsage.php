@@ -10,6 +10,8 @@ class ScarfUsage extends Model
 {
     use HasFactory;
 
+    protected $with = ['scarfUsageType'];
+
     protected $fillable = ['*'];
 
     public function scoutGroup(): BelongsTo

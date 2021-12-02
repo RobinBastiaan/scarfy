@@ -15,8 +15,13 @@ class ScoutGroupController extends Controller
      */
     public function index(Request $request): View
     {
+        $scoutGroups = ScoutGroup::with('currentScarfUsage.scarf')
+            ->filter($request)
+            ->paginate()
+            ->appends(request()->query());
+
         return view('groups.index', [
-            'groups' => ScoutGroup::filter($request)->paginate()->appends(request()->query()),
+            'groups' => $scoutGroups,
         ]);
     }
 
@@ -46,9 +51,11 @@ class ScoutGroupController extends Controller
      */
     public function show(string $scoutGroupSlug): View
     {
-        $group = ScoutGroup::with(['association', 'scarfUsages' => function ($q) {
+        $group = ScoutGroup::with(['association', 'scarfUsages.scarf', 'scarfUsages' => function ($q) {
             $q->orderBy('used_until')->orderBy('scarf_usage_type_id');
-        }])->where('slug', $scoutGroupSlug)->firstOrfail();
+        }])
+            ->where('slug', $scoutGroupSlug)
+            ->firstOrfail();
         $neighboringGroups = ScoutGroup::neighboringGroups($group)->get();
 
         return view('groups.show', compact(['group', 'neighboringGroups']));

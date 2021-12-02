@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -14,8 +15,6 @@ use Spatie\Sluggable\SlugOptions;
 class ScoutGroup extends Model
 {
     use HasFactory, HasSlug;
-
-    protected $with = ['scarfUsages.scarf'];
 
     protected $fillable = [
         'name', 'website', 'city', 'country', 'founded_on', 'cancelled_on', 'association_id',
@@ -96,5 +95,10 @@ class ScoutGroup extends Model
                 ['city', 'LIKE', "%{$request->city}%"],
             ]);
         }
+    }
+
+    public function currentScarfUsage(): HasOne
+    {
+        return $this->hasOne(ScarfUsage::class, '')->latestOfMany('introduced_on');
     }
 }
