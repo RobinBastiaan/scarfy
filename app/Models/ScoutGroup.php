@@ -45,7 +45,10 @@ class ScoutGroup extends Model
 
     public function scopeRecentAdditions(Builder $query, int $amount = 3): void
     {
-        $query->has('scarfUsages')->orderBy('created_at', 'DESC')->take($amount);
+        $query->has('scarfUsages')
+            ->with(['currentScarfUsage.scarf', 'currentScarfUsage'])
+            ->orderBy('created_at', 'DESC')
+            ->take($amount);
     }
 
     public function scopeNeighboringGroups(Builder $query, ScoutGroup $group): void
