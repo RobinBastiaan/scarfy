@@ -53,7 +53,7 @@ class ScoutGroup extends Model
 
     public function scopeNeighboringGroups(Builder $query, ScoutGroup $group): void
     {
-        $query->where([
+        $query->with('currentScarfUsage.scarf')->where([
             ['city', $group->city],
             ['id', '!=', $group->id],
         ]);

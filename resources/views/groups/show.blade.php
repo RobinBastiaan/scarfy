@@ -48,7 +48,7 @@
 
     @if ($neighboringGroups->isNotEmpty())
         <section>
-            <h2 class="text-4xl font-bold mb-4">{{ __('Neighboring Scouting Groups') }}</h2>
+            <h2 class="text-4xl font-bold mb-4">{{ __('Neighboring Scouting Groups') }} ({{ $neighboringGroups->count() }})</h2>
             @foreach ($neighboringGroups as $group)
                 @include('components.group-card', ['group', $group])
             @endforeach

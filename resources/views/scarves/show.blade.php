@@ -6,7 +6,7 @@
     @include('components.scarf-card')
 
     <section>
-        <h2 class="text-xl font-bold my-4">{{ __('Scout Groups with this scarf') }}</h2>
+        <h2 class="text-xl font-bold my-4">{{ __('Scout Groups with this scarf') }} ({{ $scarf->scarfUsages->count() }})</h2>
         <table>
             @foreach ($scarf->scarfUsages as $scarfUsage)
                 <tr>
