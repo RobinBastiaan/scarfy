@@ -50,6 +50,19 @@ class Scarf extends Model
         $this->attributes['color_scheme'] = str_replace(' ', '-', strtolower($colorScheme));
     }
 
+    public function getNeedsBorderAttribute(): bool
+    {
+        $colorsThatNeedBorder = ['#ffffff', '#fff'];
+        $propertiesThatNeedChecking = [
+            $this->color_scheme, $this->color_scheme_right,
+            $this->edge_color_scheme1, $this->edge_color_scheme_right1,
+        ];
+
+        $intersection = array_intersect($colorsThatNeedBorder, $propertiesThatNeedChecking);
+
+        return count($intersection) > 0;
+    }
+
     public function hasPattern(string $property = 'color_scheme'): bool
     {
         $patterns = self::PATTERNS;

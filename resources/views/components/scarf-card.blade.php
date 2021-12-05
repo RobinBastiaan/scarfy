@@ -1,6 +1,6 @@
 <section class="rounded-lg m-1 p-1">
     <a href="{{ route('scarves.show', $scarf->id) }}">
-        <svg viewBox="0 0 {{ Scarf::WIDTH }} {{ Scarf::HEIGHT }}">
+        <svg viewBox="-1 -1 {{ Scarf::WIDTH+2 }} {{ Scarf::HEIGHT+2 }}">
             {{-- Pattern Definition --}}
             <defs>
                 @if($scarf->hasPattern())
@@ -14,8 +14,12 @@
             @if($scarf->hasPattern())
                 <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:url(#pattern{{ $scarf->id }})"/>
             @else
-                <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}"
-                         style="fill:{{ $scarf->color_scheme }};@if($scarf->color_scheme === '#ffffff' || $scarf->color_scheme === '#fff') {{ 'stroke:lightgrey;' }}@endif"/>
+                <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" stroke-linejoin="round"
+                         style="fill:{{ $scarf->color_scheme }};@if($scarf->needsBorder) {{ 'stroke:lightgrey;' }}@endif"/>
+                {{-- Render this side twice to have the added stroke appear as "outer" --}}
+                @if($scarf->needsBorder)
+                    <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme }}";/>
+                @endif
             @endif
             @if($scarf->color_scheme_right)
                 @if($scarf->hasPattern('color_scheme_right'))
