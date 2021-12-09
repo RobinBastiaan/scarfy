@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use Database\Seeders\RealDataSeeder;
 use Illuminate\Contracts\Console\Kernel;
 
 trait CreatesApplication

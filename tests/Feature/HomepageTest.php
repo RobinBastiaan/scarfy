@@ -15,11 +15,14 @@ class HomepageTest extends TestCase
      */
     public function test_counts(): void
     {
-        Scarf::factory()->count(20)->create();
+        Scarf::factory()->count(3)->create();
 
         $response = $this->get('/');
 
         $response->assertStatus(200);
         $response->assertSeeText('Recente Toevoegingen');
+
+        // TODO
+//        $response->assertSeeText(3);
     }
 }
