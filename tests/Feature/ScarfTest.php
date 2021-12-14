@@ -15,7 +15,8 @@ class ScarfTest extends TestCase
         $response = $this->get('scarves/1');
         $response->assertStatus(404);
 
-        $scarf = Scarf::factory()->create();
+        Scarf::factory()->create();
+
         $response = $this->get('scarves');
         $response->assertStatus(200);
     }

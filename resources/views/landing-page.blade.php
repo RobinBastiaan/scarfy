@@ -21,13 +21,15 @@
         </div>
     </section>
 
-    <section>
-        <h2 class="text-xl font-bold mb-4">{{ __('Recent Additions') }}</h2>
-        @foreach ($recentAdditions as $group)
-            @include('components.group-card', ['group', $group])
-        @endforeach
-        <a class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('groups.index') }}">{{ __('View all scout groups') }}</a>
-    </section>
+    @if ($recentAdditions->isNotEmpty())
+        <section>
+            <h2 class="text-xl font-bold mb-4">{{ __('Recent Additions') }}</h2>
+            @foreach ($recentAdditions as $group)
+                @include('components.group-card', ['group', $group])
+            @endforeach
+            <a class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('groups.index') }}">{{ __('View all scout groups') }}</a>
+        </section>
+    @endif
 
     @include('components.socials')
 @endsection
