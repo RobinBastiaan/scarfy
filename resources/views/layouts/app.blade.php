@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scarfy</title>
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
@@ -14,7 +14,7 @@
     <ul class="flex items-center">
         <li>
             <a href="{{ asset('') }}" class="px-3">
-                <img src="{{ asset('logo.png') }}" alt="Home" width="32px" height="32px" class="inline transition duration-500 ease-in-out transform hover:scale-110">
+                <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32" class="inline transition duration-500 ease-in-out transform hover:scale-110">
             </a>
         </li>
         <li><a href="{{ asset('scarves') }}" class="p-3 hover:text-gray-100">{{ __('Scarves') }}</a></li>

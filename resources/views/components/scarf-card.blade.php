@@ -1,11 +1,11 @@
-<section class="rounded-lg m-1 p-1">
+<div class="rounded-lg m-1 p-1">
     <a href="{{ route('scarves.show', $scarf->id) }}">
         <svg viewBox="-1 -1 {{ Scarf::WIDTH+2 }} {{ Scarf::HEIGHT+2 }}">
             {{-- Pattern Definition --}}
             <defs>
                 @if($scarf->hasPattern())
                     <pattern id="pattern{{ $scarf->id }}" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-                        <image href="{{ asset('patterns/' . $scarf->color_scheme . '.png') }}"/>
+                        <image href="{{ asset('patterns/' . $scarf->color_scheme . '.png') }}" width="20px" height="20px"/>
                     </pattern>
                 @endif
             </defs>
@@ -18,7 +18,7 @@
                          style="fill:{{ $scarf->color_scheme }};@if($scarf->needsBorder) {{ 'stroke:lightgrey;' }}@endif"/>
                 {{-- Render this side twice to have the added stroke appear as "outer" --}}
                 @if($scarf->needsBorder)
-                    <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme }}";/>
+                    <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme }}"/>
                 @endif
             @endif
             @if($scarf->color_scheme_right)
@@ -59,4 +59,4 @@
             @endif
         </svg>
     </a>
-</section>
+</div>
