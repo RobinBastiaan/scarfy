@@ -18,7 +18,9 @@
         </div>
     @endif
 
-    <main class="">
-        @yield('main')
+    <main class="d-flex justify-content-center mt-4">
+        <div>
+            @yield('main')
+        </div>
     </main>
 @endsection

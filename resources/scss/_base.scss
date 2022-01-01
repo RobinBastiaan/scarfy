@@ -2,3 +2,7 @@
  * Base
  * All resets, variables, mixins, and any utility classes.
  */
+
+.container {
+    max-width: 960px !important;
+}

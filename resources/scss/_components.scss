@@ -2,3 +2,39 @@
  * Components
  * Anything reusable such as buttons, navbars, cards etc.
  */
+
+.parallax-header {
+    background: #000;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.0),
+        rgba(0, 0, 0, 0.9)
+    ), url('/images/banner1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65vh;
+    padding-top: 10vh;
+}
+
+.scout-group {
+    > div {
+        min-height: 286px;
+    }
+}
+
+
+.scarf {
+}
+
+#social-links {
+    ul {
+        list-style: none;
+
+        li {
+            margin: 0.7rem;
+            padding: 0.7rem;
+            display: inline-flex;
+        }
+    }
+}

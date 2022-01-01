@@ -1,33 +1,40 @@
 @extends('layouts.main')
 
-@section('main')
-    <section>
-        <h2>Scarfy</h2>
-        <p>{{ __('A community driven database of scouting scarves.') }}</p>
-        <a class="" href="{{ route('scarves.create') }}">{{ __('Add your scarf now!') }}</a>
-        <img src="{{ asset('images/banner1.jpg') }}" width="600" alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}.">
+@section('content')
+    <section class="parallax-header">
+        <div class="px-4 py-5 text-center">
+            <h1 class="display-5 fw-bold text-light">Scarfy</h1>
+            <p class="col-lg-6 mx-auto lead text-light">{{ __('A community driven database of scouting scarves.') }}</p>
+            <a class="btn btn-success btn-lg px-4" href="{{ route('scarves.create') }}">{{ __('Add your scarf now!') }}</a>
+        </div>
     </section>
 
-    <section>
-        <div>
-            <img src="{{ asset('icons/scarf.png') }}" alt="" width="40" height="40">
-            <h2>{{ __('Scarves') }}</h2>
-            <p>{{ $totalScarves }}</p>
+    <div class="container my-5 py-2">
+        <div class="row m-4 text-center">
+            <section class="card border-0 col-sm">
+                <div class="card-body">
+                    <h2 class="mb-0"><img class="card-title" src="{{ asset('icons/scarf.png') }}" alt="" width="40" height="40"> {{ $totalScarves }}</h2>
+                    <p class="card-text">{{ __('Scarves') }}</p>
+                </div>
+            </section>
+            <section class="card border-0 col-sm">
+                <div class="card-body">
+                    <h2 class="mb-0"><img class="card-title" src="{{ asset('icons/scouting.png') }}" alt="" width="40" height="40"> {{ $totalScoutGroups }}</h2>
+                    <p class="card-text">{{ __('Scout Groups') }}</p>
+                </div>
+            </section>
         </div>
-        <div>
-            <img src="{{ asset('icons/scouting.png') }}" alt="" width="40" height="40">
-            <h2>{{ __('Scout Groups') }}</h2>
-            <p>{{ $totalScoutGroups }}</p>
-        </div>
-    </section>
+    </div>
 
     @if ($recentAdditions->isNotEmpty())
-        <section>
+        <section class="container">
             <h2 class="">{{ __('Recent Additions') }}</h2>
-            @foreach ($recentAdditions as $group)
-                @include('components.group-card', ['group', $group])
-            @endforeach
-            <a class="" href="{{ route('groups.index') }}">{{ __('View all scout groups') }}</a>
+            <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                @foreach ($recentAdditions as $group)
+                    @include('components.group-card', ['group', $group])
+                @endforeach
+            </div>
+            <a class="d-block py-2" href="{{ route('groups.index') }}">{{ __('View all scout groups') }}</a>
         </section>
     @endif
 

@@ -1,4 +1,4 @@
-<div class="">
+<div class="scarf">
     <a href="{{ route('scarves.show', $scarf->id) }}">
         <svg viewBox="-1 -1 {{ Scarf::WIDTH+2 }} {{ Scarf::HEIGHT+2 }}">
             {{-- Pattern Definition --}}

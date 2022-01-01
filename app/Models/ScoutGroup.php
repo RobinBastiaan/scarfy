@@ -43,7 +43,7 @@ class ScoutGroup extends Model
         return $this->belongsTo(Association::class);
     }
 
-    public function scopeRecentAdditions(Builder $query, int $amount = 3): void
+    public function scopeRecentAdditions(Builder $query, int $amount = 6): void
     {
         $query->has('scarfUsages')
             ->with(['currentScarfUsage.scarf', 'currentScarfUsage'])

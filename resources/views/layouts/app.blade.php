@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a href="{{ asset('') }}" class="nav-link">
             <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32" class="">
