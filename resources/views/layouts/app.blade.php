@@ -10,19 +10,28 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="">
-<nav class="">
-    <ul class="">
-        <li>
-            <a href="{{ asset('') }}" class="">
-                <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32" class="">
-            </a>
-        </li>
-        <li><a href="{{ asset('scarves') }}" class="">{{ __('Scarves') }}</a></li>
-        <li><a href="{{ asset('groups') }}" class="">{{ __('Scout Groups') }}</a></li>
-        <li><a href="{{ asset('about') }}" class="">{{ __('About') }}</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a href="{{ asset('') }}" class="nav-link">
+            <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32" class="">
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a href="{{ asset('scarves') }}" class="nav-link">{{ __('Scarves') }}</a></li>
+                <li class="nav-item"><a href="{{ asset('groups') }}" class="nav-link">{{ __('Scout Groups') }}</a></li>
+                <li class="nav-item"><a href="{{ asset('about') }}" class="nav-link">{{ __('About') }}</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 @yield('content')
+
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
