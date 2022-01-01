@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main')
-    <article class="prose">
+    <article class="">
         <h2>{{ __('About') }}</h2>
         @if (Config::get('app.locale') === 'nl')
             <p>Een scoutingdas wordt door Scouts met trots gedragen en een echt icoon voor Scouting. Naast dat het je nek beschermt tegen ze zon, vertelt het ook waar je vandaan komt. Bijna iedere

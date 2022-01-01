@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <main class="bg-white rounded-lg m-8 p-6 overflow-x-auto">
+    <main class="">
         @yield('main')
     </main>
 @endsection

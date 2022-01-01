@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('main')
-    <h1 class="text-4xl font-bold mb-4">{{ __('Add Your Scouting Group') }}</h1>
+    <h1 class="">{{ __('Add Your Scouting Group') }}</h1>
 
     <form action="{{ route('groups.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <h2 class="text-xl font-bold">{{ __('Details') }}</h2>
+        <h2 class="">{{ __('Details') }}</h2>
         <label for="name">{{ __('Name') }}</label>
         <input id="name" type="text" name="name" placeholder="" value="{{ old('name') }}" required>
         <label for="website">{{ __('Website') }}</label>
@@ -16,7 +16,7 @@
 
         <div class="clearfix"></div>
 
-        <h2 class="text-xl font-bold">{{ __('Dates') }}</h2>
+        <h2 class="">{{ __('Dates') }}</h2>
         <label for="founded-on">{{ __('Founded On') }}</label>
         <input id="founded-on" type="date" name="founded_on" placeholder="" value="{{ old('founded_on') }}" required>
         <label for="cancelled-on">{{ __('Cancelled On') }}</label>
@@ -28,6 +28,6 @@
 
         <div class="clearfix"></div>
 
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Add') }}</button>
+        <button type="submit" class="">{{ __('Add') }}</button>
     </form>
 @endsection

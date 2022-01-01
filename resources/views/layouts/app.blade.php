@@ -9,17 +9,17 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="bg-gray-200">
-<nav class="p-6 bg-gray-400 flex justify-between mb-6">
-    <ul class="flex items-center">
+<body class="">
+<nav class="">
+    <ul class="">
         <li>
-            <a href="{{ asset('') }}" class="px-3">
-                <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32" class="inline transition duration-500 ease-in-out transform hover:scale-110">
+            <a href="{{ asset('') }}" class="">
+                <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32" class="">
             </a>
         </li>
-        <li><a href="{{ asset('scarves') }}" class="p-3 hover:text-gray-100">{{ __('Scarves') }}</a></li>
-        <li><a href="{{ asset('groups') }}" class="p-3 hover:text-gray-100">{{ __('Scout Groups') }}</a></li>
-        <li><a href="{{ asset('about') }}" class="p-3 hover:text-gray-100">{{ __('About') }}</a></li>
+        <li><a href="{{ asset('scarves') }}" class="">{{ __('Scarves') }}</a></li>
+        <li><a href="{{ asset('groups') }}" class="">{{ __('Scout Groups') }}</a></li>
+        <li><a href="{{ asset('about') }}" class="">{{ __('About') }}</a></li>
     </ul>
 </nav>
 

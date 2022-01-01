@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('main')
-    <h1 class="text-4xl font-bold mb-4">{{ __('Scout Group') }}</h1>
+    <h1 class="">{{ __('Scout Group') }}</h1>
 
     @include('components.group-card')
 
     <section>
-        <h2 class="text-xl font-bold my-4">{{ __('Additional Information') }}</h2>
+        <h2 class="">{{ __('Additional Information') }}</h2>
         <dl>
             <dt>{{ __('Association') }}</dt>
             <dd>{{ $group->association->name }}</dd>
@@ -20,16 +20,16 @@
     </section>
 
     <div>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Good') }}</button>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">{{ __('Looks Wrong') }}</button>
+        <button class="">{{ __('Looks Good') }}</button>
+        <button class="">{{ __('Looks Wrong') }}</button>
     </div>
 
     @php $group->scarfUsages->shift() @endphp {{-- Remove the first/main scarf, to only display the other scarves of this group --}}
     @if ($group->scarfUsages->isNotEmpty())
         <section>
-            <h2 class="text-xl font-bold mb-4">{{ __('Other Scarves Of This Scouting Group') }}</h2>
+            <h2 class="">{{ __('Other Scarves Of This Scouting Group') }}</h2>
             @foreach($group->scarfUsages as $scarfUsage)
-                <div class="w-1/6">
+                <div class="">
                     @include('components.scarf-card', ['scarf' => $scarfUsage->scarf])
                     <dl>
                         <dt>{{ __('Use type') }}</dt>
@@ -48,7 +48,7 @@
 
     @if ($neighboringGroups->isNotEmpty())
         <section>
-            <h2 class="text-4xl font-bold mb-4">{{ __('Neighboring Scouting Groups') }} ({{ $neighboringGroups->count() }})</h2>
+            <h2 class="">{{ __('Neighboring Scouting Groups') }} ({{ $neighboringGroups->count() }})</h2>
             @foreach ($neighboringGroups as $group)
                 @include('components.group-card', ['group', $group])
             @endforeach

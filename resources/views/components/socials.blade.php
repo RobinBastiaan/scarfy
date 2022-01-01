@@ -2,9 +2,9 @@
 <script src="{{ asset('js/share.js') }}"></script>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-<div class="rounded-lg shadow-lg bg-gray-100 flex flex-row flex-wrap p-3 antialiased">
+<div class="">
     <p>{{ __('Do you want to help this project further? Then share this website on your socials!') }}</p>
-    <div class="inline">
+    <div class="">
         {!!
             Share::page(
                 URL::to('/'),
