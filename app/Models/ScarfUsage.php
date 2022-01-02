@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +14,14 @@ class ScarfUsage extends Model
     protected $with = ['scarfUsageType'];
 
     protected $fillable = ['*'];
+
+    protected static function boot(): void
+    {
+        parent::boot();
+        static::addGlobalScope('order', static function (Builder $builder) {
+            $builder->orderBy('introduced_on', 'desc');
+        });
+    }
 
     public function scoutGroup(): BelongsTo
     {

@@ -3,6 +3,10 @@
  * All resets, variables, mixins, and any utility classes.
  */
 
+.content-wide {
+    max-width: 1200px !important;
+}
+
 .container {
     max-width: 960px !important;
 }

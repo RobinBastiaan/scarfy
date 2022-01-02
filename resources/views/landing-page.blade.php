@@ -11,13 +11,13 @@
 
     <div class="container my-5 py-2">
         <div class="row m-4 text-center">
-            <section class="card border-0 col-sm">
+            <section class="card border-0 col-sm pt-2">
                 <div class="card-body">
                     <h2 class="mb-0"><img class="card-title" src="{{ asset('icons/scarf.png') }}" alt="" width="40" height="40"> {{ $totalScarves }}</h2>
                     <p class="card-text">{{ __('Scarves') }}</p>
                 </div>
             </section>
-            <section class="card border-0 col-sm">
+            <section class="card border-0 col-sm pt-2">
                 <div class="card-body">
                     <h2 class="mb-0"><img class="card-title" src="{{ asset('icons/scouting.png') }}" alt="" width="40" height="40"> {{ $totalScoutGroups }}</h2>
                     <p class="card-text">{{ __('Scout Groups') }}</p>
