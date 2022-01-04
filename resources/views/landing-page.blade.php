@@ -28,7 +28,7 @@
 
     @if ($recentAdditions->isNotEmpty())
         <section class="container">
-            <h2 class="">{{ __('Recent Additions') }}</h2>
+            <h2>{{ __('Recent Additions') }}</h2>
             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
                 @foreach ($recentAdditions as $group)
                     @include('components.group-card', ['group', $group])

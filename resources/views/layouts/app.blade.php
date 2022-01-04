@@ -9,12 +9,12 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="">
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a href="{{ asset('') }}" class="nav-link">
-            <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32" class="">
+            <img src="{{ asset('logo.png') }}" alt="Home" width="32" height="32">
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01"
                 aria-expanded="false" aria-label="Toggle navigation">

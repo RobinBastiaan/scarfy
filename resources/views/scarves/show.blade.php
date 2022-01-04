@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="container m-4">
-        <h1 class="">{{ __('Scarf') }}</h1>
+        <h1>{{ __('Scarf') }}</h1>
         <div class="clearfix p-2">
             @include('components.scarf-card')
 
@@ -13,7 +13,7 @@
         </div>
 
         <section class="my-5">
-            <h2 class="">{{ __('Scout Groups with this scarf') }} ({{ $scarf->scarfUsages->count() }})</h2>
+            <h2>{{ __('Scout Groups with this scarf') }} ({{ $scarf->scarfUsages->count() }})</h2>
             <table class="table">
                 @foreach ($scarf->scarfUsages as $scarfUsage)
                     <tr @if ($scarfUsage->used_until) class="table-active text-muted" @endif >
