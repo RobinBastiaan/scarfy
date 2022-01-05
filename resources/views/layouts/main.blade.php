@@ -19,7 +19,7 @@
     @endif
 
     <main class="d-flex justify-content-center mt-4">
-        <div>
+        <div class="container my-4">
             @yield('main')
         </div>
     </main>
