@@ -54,8 +54,11 @@
                 @include('components.scarf-card')
             </div>
         @empty
-            <div class="col-12 p-5 text-center">
-                {{ __('No Results Found.') }}
+            <div class="col-12 position-relative py-5 text-center">
+                <img class="img-fluid rounded hero__image" src="{{ asset('images/no-results.jpg') }}" width="600" alt="{{ __('No Results Found.') }}.">
+                <p class="hero__caption fw-bold">
+                    {{ __('No Results Found.') }}
+                </p>
             </div>
         @endforelse
     </div>

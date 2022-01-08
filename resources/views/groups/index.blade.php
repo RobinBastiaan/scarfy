@@ -23,11 +23,22 @@
         <input class="btn btn-primary" type="submit" value="{{ __('Search') }}">
     </form>
 
-    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 py-3">
-        @foreach ($groups as $group)
-            @include('components.group-card', ['group' => $group])
-        @endforeach
-    </div>
+    @if(!empty($groups))
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 py-3">
+            @foreach ($groups as $group)
+                @include('components.group-card', ['group' => $group])
+            @endforeach
+        </div>
+    @else
+        <div class="row">
+            <div class="col-12 position-relative py-5 text-center">
+                <img class="img-fluid rounded hero__image" src="{{ asset('images/no-results.jpg') }}" width="600" alt="{{ __('No Results Found.') }}.">
+                <p class="hero__caption fw-bold">
+                    {{ __('No Results Found.') }}
+                </p>
+            </div>
+        </div>
+    @endif
 
     <div class="d-flex justify-content-center">
         {{ $groups->links() }}
