@@ -12,6 +12,14 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        // visit demo route to grant access to website to all test cases
+        $this->get('/demo');
+    }
+
     /**
      * Adding a visible ScoutGroup requires there to be an associated valid ScarfUsage and Scarf.
      */
