@@ -34,6 +34,10 @@
     }
 }
 
+.scarf:hover {
+    filter: brightness(90%);
+}
+
 #social-links {
     ul {
         list-style: none;

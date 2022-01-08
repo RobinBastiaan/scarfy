@@ -18,6 +18,7 @@ class ScarfUsage extends Model
     protected static function boot(): void
     {
         parent::boot();
+
         static::addGlobalScope('order', static function (Builder $builder) {
             $builder->orderBy('introduced_on', 'desc');
         });
