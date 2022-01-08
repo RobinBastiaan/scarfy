@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
-@section('content')
+@section('body')
+    @include('components.main-navigation')
+
     <section class="parallax-header">
         <div class="px-4 py-5 text-center">
             <h1 class="display-5 fw-bold text-light">Scarfy</h1>

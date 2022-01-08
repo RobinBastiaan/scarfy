@@ -1,6 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.plain')
 
-@section('main')
+@section('plain')
     <article class="container">
         <div class="m-4">
             <h2 class="fw-bold">{{ __('Under Construction') }}</h2>

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
+@section('body')
+    @include('components.main-navigation')
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
