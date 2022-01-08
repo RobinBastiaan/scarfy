@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f23bbfad2f24b04c499b6f0174e1fb32",
+    "content-hash": "a2aadd46098408218ee10c1a1ca11a60",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3625,6 +3625,71 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "spatie/laravel-demo-mode",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-demo-mode.git",
+                "reference": "c7c96abdff40e560ee5e5ab6ca02c071f2e7440f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-demo-mode/zipball/c7c96abdff40e560ee5e5ab6ca02c071f2e7440f",
+                "reference": "c7c96abdff40e560ee5e5ab6ca02c071f2e7440f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\DemoMode\\DemoModeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\DemoMode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A middleware to protect your work in progress from prying eyes",
+            "homepage": "https://github.com/spatie/laravel-demo-mode",
+            "keywords": [
+                "laravel-demo-mode",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-demo-mode/issues",
+                "source": "https://github.com/spatie/laravel-demo-mode/tree/2.7.1"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-02-11T08:05:27+00:00"
         },
         {
             "name": "spatie/laravel-sluggable",
