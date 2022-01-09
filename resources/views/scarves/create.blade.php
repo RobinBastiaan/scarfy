@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', __('Add Your Scarf') . ' - ')
+
 @section('main')
     <h1>{{ __('Add Your Scarf') }}</h1>
 
@@ -15,7 +17,7 @@
 			<label class="col-form-label" for="color-scheme-right" data-bs-toggle="tooltip">{{ __('Color Scheme Right') }}</label>
 			<input class="form-control" id="color-scheme-right" type="text" name="color_scheme_right" placeholder="{{ __('Color or pattern') }}" value="{{ old('color_scheme_right') }}">
 		</div>
-		
+
         <h2 class="mt-5">{{ __('Edge from outer to inner') }}</h2>
 		<div class="accordion accordion-flush" id="add-scarf-form">
 			@for ($i = 1; $i <= Scarf::MAX_EDGES_PER_SCARF; $i++)

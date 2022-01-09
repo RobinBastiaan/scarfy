@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', __('About') . ' - ')
+
 @section('main')
     <article class="container">
         <div class="m-4">

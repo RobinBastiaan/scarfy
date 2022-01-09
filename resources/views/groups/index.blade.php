@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', __('Scout Groups') . ' - ')
+
 @section('main')
     <h1>{{ __('Scout Groups') }}</h1>
     <form class="row g-3 align-items-center" action="{{ route('groups.index') }}" method="get">

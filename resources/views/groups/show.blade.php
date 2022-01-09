@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', __('Scout Group') . ' - ')
+
 @section('main')
     <h1>{{ __('Scout Group') }}</h1>
 

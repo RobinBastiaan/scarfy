@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', __('Scarves') . ' - ')
+
 @section('main')
     <h1>{{ __('Scarves') }}</h1>
     <form action="{{ route('scarves.index') }}" method="get">

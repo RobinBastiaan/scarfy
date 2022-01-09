@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', __('Scarf') . ' - ')
+
 @section('main')
     <h1>{{ __('Scarf') }}</h1>
     <div class="clearfix p-2">

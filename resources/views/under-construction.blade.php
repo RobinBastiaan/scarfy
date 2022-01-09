@@ -1,5 +1,7 @@
 @extends('layouts.plain')
 
+@section('title', __('Under Construction') . ' - ')
+
 @section('plain')
     <article class="container">
         <div class="m-4">
