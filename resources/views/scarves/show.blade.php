@@ -14,7 +14,7 @@
     </div>
 
     <section class="my-5">
-        <h2>{{ __('Scout Groups with this scarf') }} ({{ $scarf->scarfUsages->count() }})</h2>
+        <h2>{{ __('Scout Groups with this scarf') }}{!! $scarf->scarfUsages->count() <= 6 ? '' : ' (' . $scarf->scarfUsages->count() . ')' !!}</h2>
         <table class="table">
             @foreach ($scarf->scarfUsages as $scarfUsage)
                 <tr @if ($scarfUsage->used_until) class="table-active text-muted" @endif >
