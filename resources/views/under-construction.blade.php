@@ -3,7 +3,7 @@
 @section('title', __('Under Construction') . ' - ')
 
 @section('plain')
-    <article class="container">
+    <article class="container text-center">
         <div class="m-4">
             <h2 class="fw-bold">{{ __('Under Construction') }}</h2>
             <p class="lead">{{ __('This website is under construction. Please come back another time.') }}</p>
