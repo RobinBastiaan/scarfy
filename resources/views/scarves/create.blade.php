@@ -73,6 +73,8 @@
 
         <div class="clearfix"></div>
 
-        <button class="btn btn-primary m-3" type="submit">{{ __('Add') }}</button>
+        <div class="col-12">
+            <button class="btn btn-primary my-3" type="submit">{{ __('Add') }}</button>
+        </div>
     </form>
 @endsection
