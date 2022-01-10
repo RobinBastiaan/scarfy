@@ -31,11 +31,11 @@ class Scarf extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('order', function (Builder $builder) {
+        static::addGlobalScope('order', static function (Builder $builder) {
             $builder->orderBy('created_at');
         });
 
-        static::addGlobalScope('whereHas', function (Builder $builder) {
+        static::addGlobalScope('whereHas', static function (Builder $builder) {
             $builder->whereHas('scarfUsages');
         });
     }
@@ -61,6 +61,11 @@ class Scarf extends Model
         $intersection = array_intersect($colorsThatNeedBorder, $propertiesThatNeedChecking);
 
         return count($intersection) > 0;
+    }
+
+    public function readablePattern(): ?string
+    {
+        return str_replace('-', ' ', ucwords($this->color_scheme));
     }
 
     public function hasPattern(string $property = 'color_scheme'): bool

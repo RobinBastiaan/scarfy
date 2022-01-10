@@ -7,6 +7,12 @@
     <div class="clearfix p-2">
         @include('components.scarf-card')
 
+        @if ($scarf->hasPattern())
+            <div class="px-3">
+                <b>{{ __('Pattern')  }}:</b> {{ $scarf->readablePattern() }}
+            </div>
+        @endif
+
         <div class="float-end px-3">
             <button type="button" class="btn btn-success"><i class="fa fa-thumbs-up"></i> {{ __('Looks Good') }}</button>
             <button type="button" class="btn btn-danger"><i class="fa fa-thumbs-down"></i> {{ __('Looks Wrong') }}</button>
