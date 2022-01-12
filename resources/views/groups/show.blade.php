@@ -11,6 +11,14 @@
         <section class="col-12 col-md-6 px-4 py-3 py-md-0">
             <h2>{{ __('Additional Information') }}</h2>
             <dl>
+                <dt>{{ __('Use type') }}</dt>
+                <dd>{{ __(ucfirst($group->currentScarfUsage->scarfUsageType->name)) }} {{ __('Scarf') }}</dd>
+                <dt>{{ __('Introduced on') }}</dt>
+                <dd>{{ $group->currentScarfUsage->introduced_on }}</dd>
+                @if ($group->currentScarfUsage->cancelled_on)
+                    <dt>{{ __('Used Until') }}</dt>
+                    <dd>{{ $group->currentScarfUsage->cancelled_on }}</dd>
+                @endif
                 <dt>{{ __('Association') }}</dt>
                 <dd>{{ $group->association->name }}</dd>
                 <dt>{{ __('Founded on') }}</dt>
