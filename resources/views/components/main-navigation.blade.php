@@ -9,7 +9,7 @@
         </button>
 
         <div class="navbar-collapse collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto  text-end">
                 <li class="nav-item"><a href="{{ asset('scarves') }}" class="nav-link">{{ __('Scarves') }}</a></li>
                 <li class="nav-item"><a href="{{ asset('groups') }}" class="nav-link">{{ __('Scout Groups') }}</a></li>
                 <li class="nav-item"><a href="{{ asset('about') }}" class="nav-link">{{ __('About') }}</a></li>

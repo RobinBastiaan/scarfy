@@ -4,7 +4,7 @@
 
 @section('main')
     <article class="container">
-        <div class="m-4">
+        <div class="my-4">
             <h2 class="fw-bold">{{ __('About') }}</h2>
             @if (Config::get('app.locale') === 'nl')
                 <p>Een scoutingdas wordt door Scouts met trots gedragen en een echt icoon voor Scouting. Naast dat het je nek beschermt tegen ze zon, vertelt het ook waar je vandaan komt. Bijna iedere
