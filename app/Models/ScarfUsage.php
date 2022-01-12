@@ -7,6 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property string $introduced_on
+ * @property string|null $used_until
+ * @property int $scarf_id
+ * @property int $scout_group_id
+ * @property int $scarf_usage_type_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Scarf $scarf
+ * @property-read \App\Models\ScarfUsageType $scarfUsageType
+ * @property-read \App\Models\ScoutGroup $scoutGroup
+ */
 class ScarfUsage extends Model
 {
     use HasFactory;

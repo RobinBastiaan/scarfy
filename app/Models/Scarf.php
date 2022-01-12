@@ -8,6 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 
+/**
+ * @property int $id
+ * @property string $color_scheme
+ * @property string|null $color_scheme_right
+ * @property int|null $edge_size1
+ * @property string|null $edge_color_scheme1
+ * @property string|null $edge_color_scheme_right1
+ * @property int|null $edge_size2
+ * @property string|null $edge_color_scheme2
+ * @property string|null $edge_color_scheme_right2
+ * @property int|null $edge_size3
+ * @property string|null $edge_color_scheme3
+ * @property string|null $edge_color_scheme_right3
+ * @property int|null $edge_size4
+ * @property string|null $edge_color_scheme4
+ * @property string|null $edge_color_scheme_right4
+ * @property string|null $image_path
+ * @property string|null $text
+ * @property string|null $text_color
+ * @property string|null $text_font
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read bool $needs_border
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ScarfUsage[] $scarfUsages
+ * @property-read int|null $scarf_usages_count
+ */
 class Scarf extends Model
 {
     use HasFactory;

@@ -12,6 +12,23 @@ use Illuminate\Http\Request;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property string|null $website
+ * @property string $city
+ * @property string $country
+ * @property string $founded_on
+ * @property string|null $cancelled_on
+ * @property int $association_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Association $association
+ * @property-read \App\Models\ScarfUsage|null $currentScarfUsage
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ScarfUsage[] $scarfUsages
+ * @property-read int|null $scarf_usages_count
+ */
 class ScoutGroup extends Model
 {
     use HasFactory, HasSlug;
