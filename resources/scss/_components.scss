@@ -8,13 +8,29 @@
     background: linear-gradient(
             rgba(0, 0, 0, 0.0),
             rgba(0, 0, 0, 0.9)
-    ), url('/images/banner1.jpg');
+    ), url('/images/banner1-small.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 65vh;
     padding-top: 10vh;
+}
+
+@media only screen and (min-width: 768px) {
+    .parallax-header {
+        background: #e2e59c;
+        background: linear-gradient(
+                rgba(0, 0, 0, 0.0),
+                rgba(0, 0, 0, 0.9)
+        ), url('/images/banner1.jpg');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 65vh;
+        padding-top: 10vh;
+    }
 }
 
 .hero__image {
