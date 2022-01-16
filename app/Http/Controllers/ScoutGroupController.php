@@ -51,6 +51,7 @@ class ScoutGroupController extends Controller
      */
     public function show(string $scoutGroupSlug): View
     {
+        /** @var ScoutGroup $group */
         $group = ScoutGroup::with(['association', 'scarfUsages.scarf', 'scarfUsages' => function ($q) {
             $q->orderBy('used_until')->orderBy('scarf_usage_type_id');
         }])

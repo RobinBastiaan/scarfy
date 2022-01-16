@@ -120,6 +120,10 @@ class RealDataSeeder extends Seeder
             ->withBorder(3, '#137b64', 2)
             ->create();
 
+        Scarf::factory()
+            ->withBaseColor('maclean')
+            ->create();
+
         /*
          * ScoutGroup
          */
@@ -210,6 +214,38 @@ class RealDataSeeder extends Seeder
             'city'       => 'Leusden',
             'country'    => 'Netherlands',
             'founded_on' => '1911-04-01',
+        ]);
+
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting Alblasserdam',
+            'website'    => 'scouting-alblasserdam.nl',
+            'city'       => 'Alblasserdam',
+            'country'    => 'Netherlands',
+            'founded_on' => '2004-01-01',
+        ]);
+
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting Paulusgroep Maassluis',
+            'website'    => 'paulusscout.nl',
+            'city'       => 'Maassluis',
+            'country'    => 'Netherlands',
+            'founded_on' => '1957-06-30',
+        ]);
+
+        ScoutGroup::factory()->create([
+            'name'       => 'Scouting Hank',
+            'website'    => 'scoutinghank.nl',
+            'city'       => 'Hank',
+            'country'    => 'Netherlands',
+            'founded_on' => '1953-01-01',
+        ]);
+
+        ScoutGroup::factory()->create([
+            'name'       => 'Alexandergroep',
+            'website'    => 'alexandergroep.nl',
+            'city'       => 'Ermelo',
+            'country'    => 'Netherlands',
+            'founded_on' => '1973-09-01',
         ]);
 
         /*
@@ -326,6 +362,42 @@ class RealDataSeeder extends Seeder
                 'scarf_id'            => 15,
                 'scout_group_id'      => 11,
                 'scarf_usage_type_id' => 3,
+            ])
+            ->create();
+
+        ScarfUsage::factory()
+            ->sequence(fn($sequence) => [
+                'scarf_id'            => 16,
+                'scout_group_id'      => 12,
+                'scarf_usage_type_id' => 1,
+                'introduced_on'       => '2004-01-01',
+            ])
+            ->create();
+
+        ScarfUsage::factory()
+            ->sequence(fn($sequence) => [
+                'scarf_id'            => 16,
+                'scout_group_id'      => 13,
+                'scarf_usage_type_id' => 1,
+                'introduced_on'       => '1957-06-30',
+            ])
+            ->create();
+
+        ScarfUsage::factory()
+            ->sequence(fn($sequence) => [
+                'scarf_id'            => 16,
+                'scout_group_id'      => 14,
+                'scarf_usage_type_id' => 1,
+                'introduced_on'       => '1953-01-01',
+            ])
+            ->create();
+
+        ScarfUsage::factory()
+            ->sequence(fn($sequence) => [
+                'scarf_id'            => 16,
+                'scout_group_id'      => 15,
+                'scarf_usage_type_id' => 1,
+                'introduced_on'       => '1973-09-01',
             ])
             ->create();
     }
