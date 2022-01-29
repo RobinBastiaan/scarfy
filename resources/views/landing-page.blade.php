@@ -40,5 +40,27 @@
         </section>
     @endif
 
+    @if ($showScoutScarfDay)
+        <section class="container px-4 py-5 mt-2 text-center">
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <h2>{{ __('Scout Scarf Day') }}</h2>
+                    <p>
+                        {!! __('Each year on <b>August 1</b>, scouts across the world celebrate World Scout Scarf Day.') !!}
+                        {{ __('This day is for all active and former scout members to showcase their scout pride by wearing their scarves in public.') }}
+                    </p>
+                    <p>
+                        {{ __('Will you too be wearing your scarf on Scout Scarf Day?') }}
+                    </p>
+                    <a class="btn btn-success" href="https://www.facebook.com/Scout.Scarf.Day">{{ __('Yes, of course') }}</a>
+                    <a class="btn btn-secondary" href="https://www.scoutscarfday.com">{{ __('Explore more') }}</a>
+                </div>
+                <div class="col-md-6 my-2">
+                    <img width="100%" style="max-width: 400px" src="{{ asset('images/world-scarf-day.jpg') }}" alt="{{ __('A drawing of scarves laid out in a circle for World Scarf Day') }}">
+                </div>
+            </div>
+        </section>
+    @endif
+
     @include('components.socials')
 @endsection
