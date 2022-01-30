@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Scarf;
 use App\Models\ScoutGroup;
 use Carbon\Carbon;
-use Illuminate\Routing\Controller;
 
 class LandingPageController extends Controller
 {
