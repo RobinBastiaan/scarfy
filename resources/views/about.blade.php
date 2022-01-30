@@ -27,5 +27,8 @@
         </div>
     </article>
 
+    {{-- Usefull Links --}}
+    @include('components.useful-links')
+
     @include('components.socials')
 @endsection
