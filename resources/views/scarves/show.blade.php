@@ -32,4 +32,6 @@
             @endforeach
         </table>
     </section>
+
+    <a href="{{ route('scarves.add-group', ['scarf' => $scarf]) }}">{{ __('Add a scouting group to this scarf!') }}</a>
 @endsection

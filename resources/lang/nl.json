@@ -716,6 +716,7 @@
     "About": "Over",
     "Add your scarf now!": "Voeg jouw das nu nog toe!",
     "Add your scouting group now!": "Voeg jouw scoutinggroep nu nog toe!",
+    "Add a scouting group to this scarf!": "Voeg een scoutinggroep toe aan deze das!",
     "Recent Additions": "Recente Toevoegingen",
     "A community driven database of scouting scarves.": "Een community-gedreven database van scouting-dassen.",
     "A patrol of scouts walking in nature on a sunny day": "Een patrouille van scouts die wandelen in de natuur op een zonnige dag",
@@ -776,6 +777,8 @@
 
     "Add Your Scouting Group": "Voeg Scoutinggroep Toe",
     "Scouting Group added successfully!": "Scoutinggroep succesvol toegevoegd.",
+
+    "Add Scouting Group to Scarf": "Voeg Scoutinggroep aan Das Toe",
 
     "Scout Scarf Day": "Scouting Das Dag",
     "Each year on <b>August 1</b>, scouts across the world celebrate World Scout Scarf Day.": "Elk jaar op <b>1 augustus</b> vieren scouts over de hele wereld Scouting Das Dag.",

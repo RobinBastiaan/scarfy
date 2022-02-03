@@ -23,12 +23,10 @@ class ScarfUsageFactory extends Factory
      */
     public function definition(): array
     {
-        $typesCount = count(ScarfUsageType::TYPES);
-
         return [
-            'introduced_on'       => $this->faker->dateTimeThisCentury('-30 years'),
-            'scarf_id'            => Scarf::withoutGlobalScopes()->get()->random()->id,
-            'scout_group_id'      => ScoutGroup::withoutGlobalScopes()->get()->random()->id,
+            'introduced_on'  => $this->faker->dateTimeThisCentury('-30 years'),
+            'scarf_id'       => Scarf::withoutGlobalScopes()->get()->random()->id,
+            'scout_group_id' => ScoutGroup::withoutGlobalScopes()->get()->random()->id,
         ];
     }
 }

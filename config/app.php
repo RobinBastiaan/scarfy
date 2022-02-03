@@ -232,6 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Scarf' => App\Models\Scarf::class,
+        'ScarfUsageType' => App\Models\ScarfUsageType::class,
         'Share' => Jorenvh\Share\ShareFacade::class,
 
     ],

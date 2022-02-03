@@ -18,4 +18,6 @@ Route::group(['middleware' => 'demoMode'], static function () {
         'scarves' => ScarfController::class,
         'groups'  => ScoutGroupController::class,
     ]);
+
+    Route::get('/scarves/{scarf}/add-group', [ScarfController::class, 'addGroup'])->name('scarves.add-group');
 });

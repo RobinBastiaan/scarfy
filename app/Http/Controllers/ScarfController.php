@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreScarfRequest;
 use App\Models\Scarf;
+use App\Models\ScoutGroup;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -92,5 +93,15 @@ class ScarfController extends Controller
     public function destroy(Scarf $scarf): View
     {
         //
+    }
+
+    public function addGroup(int $scarfId): View
+    {
+        $scarf = Scarf::with(['scarfUsages.scoutGroup', 'scarfUsages.scarfUsageType'])
+            ->findOrFail($scarfId);
+
+        $scoutGroups = ScoutGroup::all();
+
+        return view('scarves.add-group', compact('scarf', 'scoutGroups'));
     }
 }
