@@ -97,6 +97,9 @@ class ScarfController extends Controller
         //
     }
 
+    /**
+     * Show form to add an existing scout group to the selected scarf.
+     */
     public function addGroup(Scarf $scarf): View
     {
         $scoutGroups = ScoutGroup::all();
@@ -104,7 +107,10 @@ class ScarfController extends Controller
         return view('scarves.add-group', compact('scarf', 'scoutGroups'));
     }
 
-    public function submitAddGroup(Scarf $scarf, AddGroupToScarfRequest $request): RedirectResponse
+    /**
+     * Add an existing scout group to the selected scarf.
+     */
+    public function storeAddGroup(Scarf $scarf, AddGroupToScarfRequest $request): RedirectResponse
     {
         $validated = $request->validated();
 
