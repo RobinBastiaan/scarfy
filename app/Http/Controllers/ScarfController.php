@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddGroupToScarfRequest;
 use App\Http\Requests\StoreScarfRequest;
 use App\Models\Scarf;
+use App\Models\ScarfUsage;
 use App\Models\ScoutGroup;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -78,7 +80,7 @@ class ScarfController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Scarf $scarf
+     * @param \App\Models\Scarf        $scarf
      */
     public function update(Request $request, Scarf $scarf): View
     {
@@ -95,13 +97,26 @@ class ScarfController extends Controller
         //
     }
 
-    public function addGroup(int $scarfId): View
+    public function addGroup(Scarf $scarf): View
     {
-        $scarf = Scarf::with(['scarfUsages.scoutGroup', 'scarfUsages.scarfUsageType'])
-            ->findOrFail($scarfId);
-
         $scoutGroups = ScoutGroup::all();
 
         return view('scarves.add-group', compact('scarf', 'scoutGroups'));
+    }
+
+    public function submitAddGroup(Scarf $scarf, AddGroupToScarfRequest $request): RedirectResponse
+    {
+        $validated = $request->validated();
+
+        $scarfUsage = new ScarfUsage();
+        $scarfUsage->scarf_id = $scarf->id;
+        $scarfUsage->scout_group_id = $validated['scout_group_id'];
+        $scarfUsage->scarf_usage_type_id = $validated['scarf_usage_type_id'];
+        $scarfUsage->introduced_on = $validated['introduced_on'];
+        $scarfUsage->used_until = $validated['used_until'];
+        $scarfUsage->save();
+
+        return redirect()->route('scarves.show', compact('scarf'))
+            ->with('success', __('Scarf usage successfully. Populair scarf indeed!'));
     }
 }

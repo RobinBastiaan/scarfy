@@ -20,4 +20,5 @@ Route::group(['middleware' => 'demoMode'], static function () {
     ]);
 
     Route::get('/scarves/{scarf}/add-group', [ScarfController::class, 'addGroup'])->name('scarves.add-group');
+    Route::post('/scarves/{scarf}/submit-add-group', [ScarfController::class, 'submitAddGroup'])->name('scarves.submit-add-group');
 });

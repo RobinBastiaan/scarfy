@@ -43,7 +43,7 @@ class ScoutGroupController extends Controller
         ScoutGroup::create($validated);
 
         return redirect()->route('groups.index')
-            ->with('success', __('Scouting Group added successfully!'));
+            ->with('success', __('Scouting Group added successfully. Scouting is everywhere!'));
     }
 
     /**

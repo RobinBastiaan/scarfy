@@ -125,12 +125,21 @@ return [
     'uploaded'             => 'Het uploaden van :attribute is mislukt.',
     'url'                  => ':Attribute moet een geldig URL zijn.',
     'uuid'                 => ':Attribute moet een geldig UUID zijn.',
+
     'custom'               => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
     ],
 
+    'attributes'               => [
+        'scout_group' => 'Scoutinggroep',
+        'scarf_usage_type_id' => 'Gebruiksreden',
+        'introduced_on' => 'Geïntroduceerd op',
+        'used_until' => 'Gebruikt tot',
+    ],
+
     'color_or_pattern' => 'Het kleuren schema moet een kleur of een patroon zijn.',
     'name.common' => 'Het land moet een geldig land zijn.',
+    'use_type' => 'Gebruiksreden',
 ];
