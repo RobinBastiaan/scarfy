@@ -102,7 +102,7 @@ class ScarfController extends Controller
      */
     public function addGroup(Scarf $scarf): View
     {
-        $scoutGroups = ScoutGroup::all();
+        $scoutGroups = ScoutGroup::withoutGlobalScope('hasScarfUsages')->get();
 
         return view('scarves.add-group', compact('scarf', 'scoutGroups'));
     }
