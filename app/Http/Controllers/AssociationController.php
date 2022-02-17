@@ -67,7 +67,7 @@ class AssociationController extends Controller
      * @param \App\Models\Association $association
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, association $association)
+    public function update(Request $request, Association $association)
     {
         //
     }

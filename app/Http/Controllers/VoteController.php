@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vote;
 use App\Http\Requests\StoreVoteRequest;
-use App\Http\Requests\UpdateVoteRequest;
+use Illuminate\Http\RedirectResponse;
 
 class VoteController extends Controller
 {
@@ -30,13 +30,15 @@ class VoteController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreVoteRequest  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(StoreVoteRequest $request)
+    public function store(StoreVoteRequest $request): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+
+        Vote::create($validated);
+
+        return redirect()->route('groups.index')
+            ->with('success', __('Vote added. You adhered to the rule to always leave the campground cleaner than you found it.'));
     }
 
     /**
@@ -64,11 +66,11 @@ class VoteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateVoteRequest  $request
+     * @param  \App\Http\Requests\StoreVoteRequest  $request
      * @param  \App\Models\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVoteRequest $request, Vote $vote)
+    public function update(StoreVoteRequest $request, Vote $vote)
     {
         //
     }

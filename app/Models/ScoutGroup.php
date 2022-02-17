@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\Request;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -24,9 +25,10 @@ use Spatie\Sluggable\SlugOptions;
  * @property int $association_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Association $association
- * @property-read \App\Models\ScarfUsage|null $currentScarfUsage
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ScarfUsage[] $scarfUsages
+ * @property-read Association $association
+ * @property-read ScarfUsage|null $currentScarfUsage
+ * @property-read Vote|null $votes
+ * @property-read \Illuminate\Database\Eloquent\Collection|ScarfUsage[] $scarfUsages
  * @property-read int|null $scarf_usages_count
  */
 class ScoutGroup extends Model
@@ -58,6 +60,11 @@ class ScoutGroup extends Model
     public function association(): BelongsTo
     {
         return $this->belongsTo(Association::class);
+    }
+
+    public function votes(): MorphMany
+    {
+        return $this->morphMany(Vote::class, 'voteable');
     }
 
     public function scopeRecentAdditions(Builder $query, int $amount = 6): void

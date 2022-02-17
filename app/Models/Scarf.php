@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\Request;
 
 /**
@@ -31,7 +32,8 @@ use Illuminate\Http\Request;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read bool $needs_border
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ScarfUsage[] $scarfUsages
+ * @property-read \Illuminate\Database\Eloquent\Collection|ScarfUsage[] $scarfUsages
+ * @property-read Vote|null $votes
  * @property-read int|null $scarf_usages_count
  */
 class Scarf extends Model
@@ -65,6 +67,11 @@ class Scarf extends Model
     public function scarfUsages(): HasMany
     {
         return $this->hasMany(ScarfUsage::class);
+    }
+
+    public function votes(): MorphMany
+    {
+        return $this->morphMany(Vote::class, 'voteable');
     }
 
     public function setColorSchemeAttribute(string $colorScheme): void
