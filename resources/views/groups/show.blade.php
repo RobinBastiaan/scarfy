@@ -33,7 +33,7 @@
                 <form class="inline" action="{{ route('votes.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="voteable_type" value="scout_groups">
-                    <input type="hidden" name="voteable_id" value="{{ __($scarf->id) }}">
+                    <input type="hidden" name="voteable_id" value="{{ __($group->id) }}">
                     <button type="submit" class="btn btn-success" name="is_good" value="1"><i class="fa fa-thumbs-up"></i> {{ __('Looks Good') }}</button>
                     <button type="submit" class="btn btn-danger" name="is_good" value="0"><i class="fa fa-thumbs-down"></i> {{ __('Looks Wrong') }}</button>
                 </form>
