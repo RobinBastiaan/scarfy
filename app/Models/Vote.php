@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * @property int $id
- * @property int $user_id
+ * @property bool $is_good
  * @property string $voteable_type
  * @property int $voteable_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -18,6 +18,17 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 class Vote extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'is_good',
+        'voteable_type',
+        'voteable_id',
+    ];
 
     public function voteable(): MorphTo
     {

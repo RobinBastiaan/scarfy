@@ -37,7 +37,7 @@ class VoteController extends Controller
 
         Vote::create($validated);
 
-        return redirect()->route('groups.index')
+        return redirect()->back()
             ->with('success', __('Vote added. You adhered to the rule to always leave the campground cleaner than you found it.'));
     }
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Scarf;
-use App\Rules\ColorOrPattern;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreVoteRequest extends FormRequest
@@ -14,5 +12,22 @@ class StoreVoteRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     */
+    public function rules(): array
+    {
+        $polymorphExistsRule = '';
+        if ($this->has('voteable_type')) {
+            $polymorphExistsRule .= '|exists:' . $this->voteable_type . ',id';
+        }
+
+        return [
+            'is_good'       => 'boolean',
+            'voteable_type' => 'required_with:voteable_id',
+            'voteable_id'   => 'required_with:voteable_type' . $polymorphExistsRule,
+        ];
     }
 }
