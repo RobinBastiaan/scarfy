@@ -1,5 +1,5 @@
 <div class="scarf">
-    <a href="{{ route('scarves.show', $scarf->id) }}">
+    <a class="text-decoration-none" href="{{ route('scarves.show', $scarf->id) }}">
         <svg viewBox="-1 -1 {{ Scarf::WIDTH+2 }} {{ Scarf::HEIGHT+2 }}">
             {{-- Pattern Definition --}}
             <defs>
@@ -55,7 +55,7 @@
             @endif
 
             @if($scarf->text)
-                <text class="text-decoration-none" x="5" y="62" transform="rotate(-45)" style="fill: {{ $scarf->text_color }}; font: bold 10px {{ $scarf->text_font }}">{{ $scarf->text }}</text>
+                <text x="5" y="62" transform="rotate(-45)" style="fill: {{ $scarf->text_color }}; font: bold 10px {{ $scarf->text_font }}">{{ $scarf->text }}</text>
             @endif
         </svg>
     </a>
