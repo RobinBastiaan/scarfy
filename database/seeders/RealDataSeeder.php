@@ -52,7 +52,7 @@ class RealDataSeeder extends Seeder
 
         Scarf::factory()
             ->withBaseColor('#006400')
-            ->withText('SPEL', '#aadb1e', 'Impact')
+            ->withText('SPEL', '#aadb1e', 'Impact, Haettenschweiler, \'Arial Narrow Bold\', sans-serif')
             ->create();
 
         Scarf::factory()
