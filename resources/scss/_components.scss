@@ -3,38 +3,46 @@
  * Anything reusable such as buttons, navbars, cards etc.
  */
 
-.parallax-header {
-    background: #e2e59c;
-    background: linear-gradient(
-            rgba(0, 0, 0, 0.0),
-            rgba(0, 0, 0, 0.9)
-    ), url('/images/banner1-small.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 65vh;
-    min-height: 330px;
-    padding-top: 10vh;
+/**
+ * Parallax
+ */
+.parallax {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
 }
 
-@media only screen and (min-width: 768px) {
-    .parallax-header {
-        background: #e2e59c;
-        background: linear-gradient(
-                rgba(0, 0, 0, 0.0),
-                rgba(0, 0, 0, 0.9)
-        ), url('/images/banner1.jpg');
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 65vh;
-        min-height: 330px;
-        padding-top: 10vh;
-    }
+.parallax header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
 }
 
+.parallax .background {
+    transform: translateZ(-10px) scale(2);
+}
+
+.parallax .foreground {
+    transform: translateZ(-5px) scale(1.5);
+}
+
+.parallax .background,
+.parallax .foreground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/**
+ * Hero
+ */
 .hero__image {
     filter: opacity(30%) brightness(150%) grayscale(50%);
 }
@@ -46,6 +54,9 @@
     width: 100%;
 }
 
+/**
+ * Other
+ */
 .scout-group {
     > div {
         min-height: 286px;
