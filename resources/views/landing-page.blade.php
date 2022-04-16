@@ -7,7 +7,7 @@
         {{-- Hero Banner --}}
         <header>
             <div class="px-4 py-5 text-center">
-                <h1 class="display-5 fw-bold text-light">{{ config('app.name') }}</h1>--}}
+                <h1 class="display-5 fw-bold text-light">{{ config('app.name') }}</h1>
                 <p class="col-lg-6 mx-auto lead text-light">{{ __('A community driven database of scouting scarves.') }}</p>
                 <a class="btn btn-success btn-lg px-4" href="{{ route('scarves.create') }}">{{ __('Add your scarf now!') }}</a>
             </div>
