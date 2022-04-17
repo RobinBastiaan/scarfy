@@ -23,7 +23,7 @@
     z-index: -1;
     background: linear-gradient(
             rgba(0, 0, 0, 0.0),
-            rgba(0, 0, 0, 0.9)
+            rgba(0, 0, 0, 0.2)
     );
 }
 
@@ -37,7 +37,7 @@
 
 .parallax .foreground {
     transform: translateZ(-5px) scale(1.5);
-    filter: brightness(50%);
+    filter: brightness(90%);
 }
 
 .parallax .background,
