@@ -24,6 +24,10 @@
 }
 
 .parallax .background {
+    transform: translateZ(-15px) scale(2.5);
+}
+
+.parallax .middleground {
     transform: translateZ(-10px) scale(2);
 }
 
@@ -32,6 +36,7 @@
 }
 
 .parallax .background,
+.parallax .middleground,
 .parallax .foreground {
     position: absolute;
     height: 100%;
