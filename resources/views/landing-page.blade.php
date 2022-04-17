@@ -11,8 +11,8 @@
                 <p class="col-lg-6 mx-auto lead text-light">{{ __('A community driven database of scouting scarves.') }}</p>
                 <a class="btn btn-success btn-lg px-4" href="{{ route('scarves.create') }}">{{ __('Add your scarf now!') }}</a>
             </div>
-            <img alt="" src="{{ asset('images/banner1.jpg') }}" class="background">
-            <img alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}" src="{{ asset('images/banner1_foreground.png') }}" class="foreground">
+            <img width="500" alt="" src="{{ asset('images/banner1-background.png') }}" class="background">
+            <img alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}" src="{{ asset('images/banner1-foreground.png') }}" class="foreground">
         </header>
 
         <div class="bg-white">
