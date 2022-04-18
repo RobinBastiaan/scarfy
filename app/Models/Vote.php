@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 /**
  * @property int $id
  * @property bool $is_good
+ * @property string $description
  * @property string $voteable_type
  * @property int $voteable_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -26,6 +27,7 @@ class Vote extends Model
      */
     protected $fillable = [
         'is_good',
+        'description',
         'voteable_type',
         'voteable_id',
     ];

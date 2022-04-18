@@ -26,6 +26,7 @@ class StoreVoteRequest extends FormRequest
 
         return [
             'is_good'       => 'boolean',
+            'description'   => 'required',
             'voteable_type' => 'required_with:voteable_id',
             'voteable_id'   => 'required_with:voteable_type' . $polymorphExistsRule,
         ];
