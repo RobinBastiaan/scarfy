@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vote;
 use App\Http\Requests\StoreVoteRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Request;
 
 class VoteController extends Controller
 {
@@ -24,8 +25,9 @@ class VoteController extends Controller
     public function store(StoreVoteRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+        $voteData = $validated + ['ip' => Request::ip()];
 
-        Vote::create($validated);
+        Vote::create($voteData);
 
         return redirect()->back()
             ->with('success', __('Vote added. You adhered to the rule to always leave the campground cleaner than you found it.'));

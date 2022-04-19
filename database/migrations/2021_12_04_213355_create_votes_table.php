@@ -13,6 +13,7 @@ class CreateVotesTable extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
+            $table->string('ip');
             $table->boolean('is_good');
             $table->text('description')->nullable();
             $table->morphs('voteable');

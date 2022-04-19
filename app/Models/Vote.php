@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * @property int $id
+ * @property string $ip
  * @property bool $is_good
  * @property string $description
  * @property string $voteable_type
@@ -26,6 +27,7 @@ class Vote extends Model
      * @var string[]
      */
     protected $fillable = [
+        'ip',
         'is_good',
         'description',
         'voteable_type',
