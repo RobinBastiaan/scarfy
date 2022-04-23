@@ -14,11 +14,11 @@
             </div>
             <div class="modal-body mb-3">
                 <label for="description" class="form-label required">{{ __('Description') }}</label>
-                <textarea id="description" class="form-control" name="description" rows="3" required></textarea>
+                <textarea id="description" class="form-control" name="description" rows="3"></textarea>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Save') }}</button>
-                <button type="submit" class="btn btn-primary">{{ __('Tell us') }}</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
+                <button type="submit" class="btn btn-primary" name="is_good" value="0">{{ __('Tell us') }}</button>
             </div>
         </div>
     </div>

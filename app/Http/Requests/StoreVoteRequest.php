@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreVoteRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class StoreVoteRequest extends FormRequest
 
         return [
             'is_good'       => 'boolean',
-            'description'   => 'required',
+            'description'   => 'nullable',
             'voteable_type' => 'required_with:voteable_id',
             'voteable_id'   => 'required_with:voteable_type' . $polymorphExistsRule,
         ];
