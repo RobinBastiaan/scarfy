@@ -6,9 +6,9 @@
 
         {{-- Hero Banner --}}
         <header>
-            <img src="{{ asset('images/banner1-background.png') }}" class="background" alt="">
-            <img src="{{ asset('images/banner1-foreground.png') }}" class="foreground" alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}">
-            <img src="{{ asset('images/banner1-middleground.png') }}" class="middleground" alt="">
+            <img src="{{ asset('images/banner1-background.webp') }}" class="background" alt="">
+            <img src="{{ asset('images/banner1-foreground.webp') }}" class="foreground" alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}">
+            <img src="{{ asset('images/banner1-middleground.webp') }}" class="middleground" alt="">
 
             <div class="px-4 py-5 text-center">
                 <h1 class="display-5 fw-bold text-light">{{ config('app.name') }}</h1>

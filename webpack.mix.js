@@ -16,6 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/scss/app.scss', 'public/css')
     .purgeCss({
         safelist: ['social-links', 'social-button', 'page-item', 'page-link'],
-        enabled: false, // also enable it in dev so any safelist missers are spotted more easily
+        enabled: true, // also enable it in dev so any safelist missers are spotted more easily
     })
     .version();
