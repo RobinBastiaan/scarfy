@@ -712,7 +712,9 @@
     "Åland Islands": "Åland Islands",
 
     "Scarves": "Dassen",
+    "scarves": "das|dassen",
     "Scout Groups": "Scoutinggroepen",
+    "scout groups": "scoutinggroep|scoutinggroepen",
     "About": "Over",
     "Add your scarf now!": "Voeg jouw das nu nog toe!",
     "Add your scouting group now!": "Voeg jouw scoutinggroep nu nog toe!",
@@ -746,6 +748,7 @@
     "Description": "Omschrijving",
     "Tell us": "Vertel het ons",
     "You have already voted here": "Je hebt hier al van je laten weten",
+    "You have already voted on this specific :type": "Je hebt op deze :type al je stem laten horen",
 
     "With Diagonal": "Met diagonaal",
     "Without Diagonal": "Zonder diagonaal",

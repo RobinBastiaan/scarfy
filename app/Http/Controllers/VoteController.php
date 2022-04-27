@@ -25,25 +25,6 @@ class VoteController extends Controller
     {
         $validated = $request->validated();
 
-        // validate the IP address contained inside the request
-        // only for positive votes, because they do not hold additional information
-        if ($validated['is_good']) {
-            $similarVoteExists = Vote::query()
-                ->whereIp($request->ip())
-                ->whereIsGood($request->is_good)
-                ->whereVoteableId($request->voteable_id)
-                ->whereVoteableType($request->voteable_type)
-                ->exists();
-
-            if ($similarVoteExists) {
-                return redirect()->back()
-                    ->withErrors(['message1' => __('You have already voted here')]);
-            }
-        }
-
-        // Get the current users IP address and add it to the request
-        $validated['ip'] = $request->ip();
-
         Vote::create($validated);
 
         return redirect()->back()
