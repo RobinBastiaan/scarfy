@@ -7,12 +7,12 @@
         {{-- Hero Banner --}}
         <header>
             <img src="{{ asset('images/banner1-background.webp') }}" class="background" alt="">
-            <img src="{{ asset('images/banner1-foreground.webp') }}" class="foreground" alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}">
             <img src="{{ asset('images/banner1-middleground.webp') }}" class="middleground" alt="">
+            <img src="{{ asset('images/banner1-foreground.webp') }}" class="foreground" alt="{{ __('A patrol of scouts walking in nature on a sunny day') }}">
 
-            <div class="px-4 py-5 text-center">
-                <h1 class="display-5 fw-bold text-light">{{ config('app.name') }}</h1>
-                <p class="col-lg-6 mx-auto lead text-light">{{ __('A community driven database of scouting scarves.') }}</p>
+            <div class="px-4 py-5 text-center text-light">
+                <h1 class="display-5 fw-bold">{{ config('app.name') }}</h1>
+                <p class="mx-auto lead">{{ __('A community driven database of scouting scarves.') }}</p>
                 <a class="btn btn-success btn-lg px-4" href="{{ route('scarves.create') }}">{{ __('Add your scarf now!') }}</a>
             </div>
         </header>

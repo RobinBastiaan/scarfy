@@ -11,6 +11,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
+    background-color: #F1F4AE;
 }
 
 .parallax header {
@@ -23,7 +24,7 @@
     z-index: -1;
     background: linear-gradient(
             rgba(0, 0, 0, 0.0),
-            rgba(0, 0, 0, 0.2)
+            rgba(0, 0, 0, 0.5)
     );
 }
 
