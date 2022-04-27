@@ -28,15 +28,15 @@
 }
 
 .parallax .background {
-    transform: translateZ(-15px) scale(2.5);
+    transform: translateZ(-15px) scale(2.6);
 }
 
 .parallax .middleground {
-    transform: translateZ(-10px) scale(2);
+    transform: translateZ(-10px) scale(2.1);
 }
 
 .parallax .foreground {
-    transform: translateZ(-5px) scale(1.5);
+    transform: translateZ(-5px) scale(1.6);
     filter: brightness(90%);
 }
 
