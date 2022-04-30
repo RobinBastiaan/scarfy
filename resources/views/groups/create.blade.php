@@ -19,7 +19,11 @@
         </div>
         <div class="col-12">
             <label for="website" class="col-form-label">{{ __('Website') }}</label>
-            <input id="website" class="form-control" type="url" name="website" placeholder="" value="{{ old('website') }}">
+            {{-- Only allow input like "example.com", "www.example.com" and "https://example.com", but not "http://example.com" --}}
+            {{-- Note we do not use the type="url" because because browsers automatically apply a check for a protocol (http(s))
+                 in addition to whatever pattern you set on that input type --}}
+            <input id="website" class="form-control" type="text" name="website" placeholder="" value="{{ old('website') }}"
+                   pattern="^(https://)?([a-zA-Z0-9]([a-zA-ZäöüÄÖÜ0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$">
         </div>
 
         <h2 class="pt-3 m-0">{{ __('Dates') }}</h2>

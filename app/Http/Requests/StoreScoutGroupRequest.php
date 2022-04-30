@@ -2,10 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Scarf;
-use App\Rules\ColorOrPattern;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class StoreScoutGroupRequest extends FormRequest
 {
@@ -24,12 +21,33 @@ class StoreScoutGroupRequest extends FormRequest
     {
         return [
             'name'           => ['string', 'unique:scout_groups'],
-            'website'        => ['nullable', 'active_url'],
+            'website'        => ['nullable', 'unique:scout_groups', 'active_url'],
             'city'           => ['string'],
             'country'        => ['string', 'country'],
             'founded_on'     => ['date'],
             'cancelled_on'   => ['nullable', 'date', 'after_or_equal:founded_on'],
             'association_id' => ['integer', 'exists:associations,id'],
         ];
+    }
+
+    public function prepareForValidation(): ?StoreScoutGroupRequest
+    {
+        // We allow users to input a website without scheme, but we need that for the validation.
+        $website = empty(parse_url($this->website)['scheme'])
+            ? 'https://' . ltrim($this->website) // only allow https
+            : $this->website;
+        $website = strtolower(rtrim($website, '/'));
+
+        return $this->merge([
+            'website' => $website,
+        ]);
+    }
+
+    protected function passedValidation(): void
+    {
+        $this->replace([
+            // Store website in the db without scheme.
+            'website' => preg_replace("#^[^:/.]*[:/]+#", "", $this->website),
+        ]);
     }
 }
