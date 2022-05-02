@@ -1,6 +1,9 @@
 <div class="scout-group {!! !empty($cols) ? $cols : 'col-12 col-sm-6 col-lg-4' !!}">
     <div class="p-3 bg-light">
-        @include('components.scarf-card', ['scarf' => $group->currentScarfUsage->scarf])
+        @if ($group->currentScarfUsage)
+            @include('components.scarf-card', ['scarf' => $group->currentScarfUsage->scarf])
+        @endif
+
         <h3 class="fw-bold"><a class="text-decoration-none" href="{{ route('groups.show', $group->slug) }}">{{ $group->name }}</a></h3>
         <div>
             <span>{{ $group->city }}, {{ __($group->country) }}</span>

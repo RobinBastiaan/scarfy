@@ -393,6 +393,7 @@
     "November": "November",
     "October": "Oktober",
     "of": "van",
+    "or": "of",
     "Oh no": "Oh nee",
     "Oman": "Oman",
     "Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.": "Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Download voordat je dit team verwijdert alle gegevens of informatie over dit team die je wilt behouden.",
@@ -719,6 +720,7 @@
     "Add your scarf now!": "Voeg jouw das nu nog toe!",
     "Add your scouting group now!": "Voeg jouw scoutinggroep nu nog toe!",
     "Add a scouting group to this scarf!": "Voeg een scoutinggroep toe aan deze das!",
+    "Add a scarf to this scouting group!": "Voeg een das toe aan deze scoutinggroep!",
     "Recent Additions": "Recente Toevoegingen",
     "A community driven database of scouting scarves.": "Een community-gedreven database van scouting-dassen.",
     "A patrol of scouts walking in nature on a sunny day": "Een patrouille van scouts die wandelen in de natuur op een zonnige dag",
@@ -741,6 +743,7 @@
     "Introduced on": "Geïntroduceerd op",
     "Used Until": "Gebruikt tot",
     "Use type": "Gebruiksreden",
+    "This scouting group does not yet have any scarf, and is therefore not visible.": "Deze scoutinggroep heeft geen das en is dus nog niet zichtbaar.",
 
     "Looks Good": "Ziet er goed uit",
     "Looks Wrong": "Ziet er verkeerd uit",

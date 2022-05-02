@@ -40,9 +40,9 @@ class ScoutGroupController extends Controller
     {
         $validated = $request->validated();
 
-        ScoutGroup::create($validated);
+        $scoutGroup = ScoutGroup::create($validated);
 
-        return redirect()->route('groups.index')
+        return redirect()->route('groups.show', $scoutGroup->name)
             ->with('success', __('Scouting Group added successfully. Scouting is everywhere!'));
     }
 
@@ -56,6 +56,7 @@ class ScoutGroupController extends Controller
             $q->orderBy('used_until')->orderBy('scarf_usage_type_id');
         }])
             ->where('slug', $scoutGroupSlug)
+            ->withoutGlobalScope('hasScarfUsages')
             ->firstOrfail();
         $neighboringGroups = ScoutGroup::neighboringGroups($group)->get();
 

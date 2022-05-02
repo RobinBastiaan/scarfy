@@ -3,6 +3,17 @@
 @section('title', __('Scout Group') . ' - ')
 
 @section('main')
+    @if (!$group->currentScarfUsage)
+        <div class="alert alert-warning">
+            <p>
+                {{ __('This scouting group does not yet have any scarf, and is therefore not visible.') }}
+                <a href="{{ route('scarves.index') }}">{{ __('Search') }}</a>
+                {{ __('or') }}
+                <a href="{{ route('scarves.create') }}">{{ __('Add a scarf to this scouting group!') }}</a>
+            </p>
+        </div>
+    @endif
+
     <h1>{{ __('Scout Group') }}</h1>
 
     <div class="row py-3">
@@ -11,13 +22,15 @@
         <section class="col-12 col-md-6 px-4 py-3 py-md-0">
             <h2>{{ __('Additional Information') }}</h2>
             <dl>
-                <dt>{{ __('Use type') }}</dt>
-                <dd>{{ __(ucfirst($group->currentScarfUsage->scarfUsageType->name)) }} {{ __('Scarf') }}</dd>
-                <dt>{{ __('Introduced on') }}</dt>
-                <dd>{{ $group->currentScarfUsage->introduced_on }}</dd>
-                @if ($group->currentScarfUsage->cancelled_on)
-                    <dt>{{ __('Used Until') }}</dt>
-                    <dd>{{ $group->currentScarfUsage->cancelled_on }}</dd>
+                @if ($group->currentScarfUsage)
+                    <dt>{{ __('Use type') }}</dt>
+                    <dd>{{ __(ucfirst($group->currentScarfUsage->scarfUsageType->name)) }} {{ __('Scarf') }}</dd>
+                    <dt>{{ __('Introduced on') }}</dt>
+                    <dd>{{ $group->currentScarfUsage->introduced_on }}</dd>
+                    @if ($group->currentScarfUsage->cancelled_on)
+                        <dt>{{ __('Used Until') }}</dt>
+                        <dd>{{ $group->currentScarfUsage->cancelled_on }}</dd>
+                    @endif
                 @endif
                 <dt>{{ __('Association') }}</dt>
                 <dd>{{ $group->association->name }}</dd>
