@@ -1,5 +1,11 @@
+@php
+    $scarf = $scarf ?? new \App\Models\Scarf(['id'=>1]);
+@endphp
 <div class="scarf">
-    <a class="text-decoration-none" href="{{ route('scarves.show', $scarf->id) }}">
+    @if ($scarf->id)
+        <a class="text-decoration-none" href="{{ route('scarves.show', $scarf->id) }}">
+    @endif
+
         <svg viewBox="-1 -1 {{ Scarf::WIDTH+2 }} {{ Scarf::HEIGHT+2 }}">
             {{-- Pattern Definition --}}
             <defs>
@@ -15,7 +21,7 @@
                 <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:url(#pattern{{ $scarf->id }})"/>
             @else
                 <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" stroke-linejoin="round"
-                         style="fill:{{ $scarf->color_scheme }};@if($scarf->needsBorder) {{ 'stroke:lightgrey;' }}@endif"/>
+                         style="fill:{{ $scarf->color_scheme ?? 'lightgrey' }};@if($scarf->needsBorder) {{ 'stroke:lightgrey;' }}@endif"/>
                 {{-- Render this side twice to have the added stroke appear as "outer" --}}
                 @if($scarf->needsBorder)
                     <polygon points="0 0, {{ Scarf::WIDTH }} 0, {{ Scarf::WIDTH/2 }} {{ Scarf::HEIGHT }}" style="fill:{{ $scarf->color_scheme }}"/>
@@ -57,6 +63,15 @@
             @if($scarf->text)
                 <text x="5" y="62" transform="rotate(-45)" style="fill: {{ $scarf->text_color }}; font: bold 10px {{ $scarf->text_font }}">{{ $scarf->text }}</text>
             @endif
+
+            {{-- Unknown scarf --}}
+            @if (!$scarf->id)
+                <text x="5" y="62" transform="rotate(-45)" style="fill: white;">???</text>
+            @endif
         </svg>
-    </a>
+
+    @if ($scarf->id)
+        </a>
+    @endif
+
 </div>

@@ -6,8 +6,8 @@
     @if (!$group->currentScarfUsage)
         <div class="alert alert-warning">
             <p>
-                {{ __('This scouting group does not yet have any scarf, and is therefore not visible.') }}
-                <a href="{{ route('scarves.index') }}">{{ __('Search') }}</a>
+                {{ __('This scouting group does not yet have any scarf, and is therefore not visible.') }}<br>
+                <a href="{{ route('scarves.index') }}">{{ __('Search for a scarf') }}</a>
                 {{ __('or') }}
                 <a href="{{ route('scarves.create') }}">{{ __('Add a scarf to this scouting group!') }}</a>
             </p>
