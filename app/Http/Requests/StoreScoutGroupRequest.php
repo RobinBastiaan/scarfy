@@ -33,8 +33,8 @@ class StoreScoutGroupRequest extends FormRequest
 
     public function messages(): array
     {
-        $groupByName = ScoutGroup::where('name', $this->name)->first();
-        $groupByWebsite = ScoutGroup::where('website', $this->website)->first();
+        $groupByName = ScoutGroup::where('name', $this->name)->withoutGlobalScope('hasScarfUsages')->first();
+        $groupByWebsite = ScoutGroup::where('website', $this->website)->withoutGlobalScope('hasScarfUsages')->first();
 
         return [
             'name.unique'    => __('This :type is already being used by <a href=":route">:name</a>.', [
