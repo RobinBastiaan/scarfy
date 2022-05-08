@@ -126,20 +126,26 @@ return [
     'url'                  => ':Attribute moet een geldig URL zijn.',
     'uuid'                 => ':Attribute moet een geldig UUID zijn.',
 
-    'custom'               => [
+    'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
     ],
 
-    'attributes'               => [
-        'scout_group' => 'Scoutinggroep',
+    'attributes' => [
+        'scout_group'         => 'Scoutinggroep',
         'scarf_usage_type_id' => 'Gebruiksreden',
-        'introduced_on' => 'Geïntroduceerd op',
-        'used_until' => 'Gebruikt tot',
+        'introduced_on'       => 'Geïntroduceerd op',
+        'used_until'          => 'Gebruikt tot',
+        'name'                => 'Naam',
+        'city'                => 'Stad',
+        'country'             => 'Land',
+        'founded_on'          => 'Opgericht op',
+        'cancelled_on'        => 'Opgeheven op',
+        'association_id'      => 'Vereniging',
     ],
 
     'color_or_pattern' => 'Het kleuren schema moet een kleur of een patroon zijn.',
-    'name.common' => 'Het land moet een geldig land zijn.',
-    'use_type' => 'Gebruiksreden',
+    'name.common'      => 'Het land moet een geldig land zijn.',
+    'use_type'         => 'Gebruiksreden',
 ];

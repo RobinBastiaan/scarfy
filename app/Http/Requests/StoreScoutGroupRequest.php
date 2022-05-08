@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\ScoutGroup;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreScoutGroupRequest extends FormRequest
@@ -30,10 +31,29 @@ class StoreScoutGroupRequest extends FormRequest
         ];
     }
 
+    public function messages(): array
+    {
+        $groupByName = ScoutGroup::where('name', $this->name)->first();
+        $groupByWebsite = ScoutGroup::where('website', $this->website)->first();
+
+        return [
+            'name.unique'    => __('This :type is already being used by <a href=":route">:name</a>.', [
+                'type'  => __('name'),
+                'route' => $groupByName ? route('groups.show', $groupByName->slug) : null,
+                'name'  => $groupByName->name ?? null,
+            ]),
+            'website.unique' => __('This :type is already being used by <a href=":route">:name</a>.', [
+                'type'  => __('website'),
+                'route' => $groupByWebsite ? route('groups.show', $groupByWebsite->slug) : null,
+                'name'  => $groupByWebsite->name ?? null,
+            ]),
+        ];
+    }
+
     public function prepareForValidation(): ?StoreScoutGroupRequest
     {
         // We allow users to input a website without scheme, but we need that for the validation.
-        $website = empty(parse_url($this->website)['scheme'])
+        $website = !empty($this->website) && empty(parse_url($this->website)['scheme'])
             ? 'https://' . ltrim($this->website) // only allow https
             : $this->website;
         $website = strtolower(rtrim($website, '/'));

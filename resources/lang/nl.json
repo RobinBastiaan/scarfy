@@ -806,5 +806,8 @@
 
     "Useful Links": "Handige Links",
     "Is your favorite link not mentioned here yet?": "Is jouw favorite link hier nog niet genoemd?",
-    "Let me know! ": "Laat het me weten!"
+    "Let me know!": "Laat het me weten!",
+
+    "This :type is already being used by <a href=\":route\">:name</a>.": "Deze :type is al in gebruik door <a href=\":route\">:name</a>.",
+    "name": "naam"
 }

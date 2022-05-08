@@ -14,7 +14,7 @@
             <strong>{{ __('Whoops!') }}</strong> {{ __('There were some problems with your input.') }}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li>{!! $error !!}</li>
                 @endforeach
             </ul>
         </div>
