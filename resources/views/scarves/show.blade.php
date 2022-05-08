@@ -31,7 +31,7 @@
             @forelse ($scarf->scarfUsages as $scarfUsage)
                 <tr @if ($scarfUsage->used_until) class="table-active text-muted" @endif >
                     <td><a href="{{ route('groups.show', $scarfUsage->scoutGroup->slug) }}">{{ $scarfUsage->scoutGroup->name }}</a></td>
-                    <td>{{ __(ucfirst($scarfUsage->scarfUsageType->name)) }} {{ __('Scarf') }}</td>
+                    <td>{{ __(ucfirst($scarfUsage->scarfUsageType->name)) . Str::lower(__('Scarf')) }}</td>
                     <td>@if($scarfUsage->introduced_on)<i class="fa fa-plus"></i> {{ __('Introduced on') }} {{ $scarfUsage->introduced_on }} @endif</td>
                     <td>@if($scarfUsage->used_until)<i class="fa fa-times"></i> {{ __('Used Until') }} {{ $scarfUsage->used_until }} @endif</td>
                 </tr>

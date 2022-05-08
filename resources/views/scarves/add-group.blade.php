@@ -25,7 +25,7 @@
             <label class="col-form-label" for="use-type">{{ __('Use type') }}*</label>
             <select class="form-select" id="use-type" name="scarf_usage_type_id" required>
                 @foreach (ScarfUsageType::TYPES as $id => $type)
-                    <option value="{{ $id+1 }}"{{ old('scarf_usage_type_id') ? ' selected' : '' }}>{{ __(ucfirst($type)) }}</option>
+                    <option value="{{ $id+1 }}"{{ old('scarf_usage_type_id') ? ' selected' : '' }}>{{ __(ucfirst($type)) . Str::lower(__('Scarf')) }}</option>
                 @endforeach
             </select>
         </div>
