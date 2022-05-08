@@ -6,12 +6,12 @@ use App\Models\Association;
 use App\Models\Scarf;
 use App\Models\ScarfUsage;
 use App\Models\ScoutGroup;
+use Config;
 use Faker\Factory as Faker;
 use Faker\Generator;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Str;
+use Str;
 
 class RandomDataSeeder extends Seeder
 {
@@ -64,11 +64,15 @@ class RandomDataSeeder extends Seeder
          */
 
         ScoutGroup::factory()
-            ->count(500)
+            ->count(400)
+            ->create();
+
+        ScoutGroup::factory()
+            ->count(100)
             ->state(new Sequence(
                 function () {
-                    $city = $this->faker->unique->city();
-                    $groupName = 'Scouting ' . $city;
+                    $city = ScoutGroup::all()->random(1)->pluck('city')[0];
+                    $groupName = 'Scouting ' . $this->faker->unique->company();
                     return [
                         'name'    => $groupName,
                         'website' => Str::slug($groupName) . '.' . Config::get('app.locale'),
@@ -90,22 +94,25 @@ class RandomDataSeeder extends Seeder
             ])
             ->create();
 
-        $scoutGroups = ScoutGroup::withoutGlobalScopes()->get();
-        Scarf::withoutGlobalScopes()->get()->each(function ($scarf) use ($scoutGroups) {
-            $selectedGroupsIds = $scoutGroups->random(random_int(1, 20))->pluck('id')->toArray();
-            foreach ($selectedGroupsIds as $selectedGroupId) {
-                if ($scarf->id >= $selectedGroupId) {
+        $allScoutGroups = ScoutGroup::withoutGlobalScopes()->get();
+        Scarf::withoutGlobalScopes()->get()->each(function ($scarf) use ($allScoutGroups) {
+            $randomGroupIds = $allScoutGroups->random(random_int(1, 20))->pluck('id')->toArray();
+
+            foreach ($randomGroupIds as $randomGroupId) {
+                if ($scarf->id >= $randomGroupId) {
                     continue;
                 }
 
                 ScarfUsage::factory()
                     ->create([
                         'scarf_id'       => $scarf->id,
-                        'scout_group_id' => $selectedGroupId,
-                        'used_until'     => $this->faker->boolean(10) ? $this->faker->date : null,
+                        'scout_group_id' => $randomGroupId,
                     ]);
             }
         });
+
+        // city
+
     }
 
     /*

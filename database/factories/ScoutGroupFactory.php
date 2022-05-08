@@ -19,10 +19,15 @@ class ScoutGroupFactory extends Factory
 
     /**
      * Define the model's default state.
+     * The default is setting the scout group name to the random city they are in.
      */
     public function definition(): array
     {
         $city = $this->faker->unique->city();
+        while (!empty(ScoutGroup::where('city', $city)->first())) {
+            $city = $this->faker->unique->city();
+        }
+
         $groupName = 'Scouting ' . $city;
 
         return [
