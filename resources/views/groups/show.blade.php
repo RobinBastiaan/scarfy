@@ -78,7 +78,7 @@
     @endif
 
     @if ($neighboringGroups->isNotEmpty())
-        <section class="row py-3">
+        <section class="row g-2 g-lg-3 py-3">
             <h2>{{ __('Neighboring Scouting Groups') }}{!! $neighboringGroups->count() <= 6 ? '' : ' (' . $neighboringGroups->count() . ')' !!}</h2>
             @foreach ($neighboringGroups as $group)
                 @include('components.group-card', ['group', $group])
