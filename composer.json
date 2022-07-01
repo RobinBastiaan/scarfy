@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.5",
         "pragmarx/countries-laravel": "^0.7.0",
         "spatie/laravel-demo-mode": "^2.7",
-        "spatie/laravel-sluggable": "^2.6"
+        "spatie/laravel-sluggable": "^2.6",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
