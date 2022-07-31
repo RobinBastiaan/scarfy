@@ -9,7 +9,7 @@
         <div class="my-2">
             {{ __('Is your favorite link not mentioned here yet?') }}
             <a class="btn btn-outline-secondary" href="https://www.facebook.com/ScoutScarf-105901955316548">
-                <i class="fa fa-external-link-alt"></i> {{ __('Laat het me weten!') }}
+                <i class="fa fa-external-link-alt"></i> {{ __('Let me know!') }}
             </a>
         </div>
     </section>
