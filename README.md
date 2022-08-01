@@ -10,7 +10,7 @@
 This application is build with the <strong>Laravel framework</strong> and enables users to find and upload their
 Scouting scarf.
 
-![Scoutscarf Homepage](https://user-images.githubusercontent.com/38226878/182252843-8da18db5-941f-4d2f-a72f-b56d966b44b9.png)
+![Scoutscarf Homepage](https://user-images.githubusercontent.com/38226878/182253099-1a95ceaa-ef62-4569-8d80-60c9662522c1.png)
 
 ## Contributing
 
