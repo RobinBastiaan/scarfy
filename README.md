@@ -11,6 +11,7 @@ This application is build with the <strong>Laravel framework</strong> and enable
 Scouting scarf.
 
 ![Scoutscarf Homepage](https://user-images.githubusercontent.com/38226878/182253099-1a95ceaa-ef62-4569-8d80-60c9662522c1.png)
+![image](https://user-images.githubusercontent.com/38226878/182253242-6d429b00-4eb3-4ef8-b6bd-50d3f5fc0688.png)
 
 ## Contributing
 
