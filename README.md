@@ -7,16 +7,23 @@
 
 ## About Scarfy
 
-This application is build with the <strong>Laravel framework</strong> and enables users to find and upload their Scouting scarf.
+This application is build with the <strong>Laravel framework</strong> and enables users to find and upload their
+Scouting scarf.
+
+![Scoutscarf Homepage](https://user-images.githubusercontent.com/38226878/182252843-8da18db5-941f-4d2f-a72f-b56d966b44b9.png)
 
 ## Contributing
 
-Thank you for considering contributing to this repository! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Thank you for considering contributing to this repository! The contribution guide can be found in
+the [Laravel documentation](https://laravel.com/docs/contributions).
 
 ## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+In order to ensure that the Laravel community is welcoming to all, please review and abide by
+the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within this project, please send an e-mail to Robin Bastiaan via his gmail (his full name at gmail). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this project, please send an e-mail to Robin Bastiaan via his gmail (his
+full name at gmail). All security vulnerabilities will be promptly addressed.
+
