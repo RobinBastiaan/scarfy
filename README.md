@@ -1,8 +1,13 @@
 [comment]: <> (<p align="center">)
+
 [comment]: <> (<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>)
+
 [comment]: <> (<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>)
+
 [comment]: <> (<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>)
+
 [comment]: <> (<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>)
+
 [comment]: <> (</p>)
 
 ## About Scarfy
@@ -17,6 +22,11 @@ Scouting scarf.
 
 Thank you for considering contributing to this repository! The contribution guide can be found in
 the [Laravel documentation](https://laravel.com/docs/contributions).
+
+When developing you might want to take a look at these tips:
+
+- Unused CSS-styles are excluded from the final styles file. When introducing a new CSS-style, be sure to run `npm 
+  run prod` again.
 
 ## Code of Conduct
 
