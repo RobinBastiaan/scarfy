@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,30 +11,33 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use RalphJSmit\Laravel\SEO\Support\HasSEO;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 /**
- * @property int $id
- * @property string $name
- * @property string $slug
- * @property string|null $website
- * @property string $city
- * @property string $country
- * @property string $founded_on
- * @property string|null $cancelled_on
- * @property int $association_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Association $association
- * @property-read ScarfUsage|null $currentScarfUsage
- * @property-read Vote|null $votes
- * @property-read \Illuminate\Database\Eloquent\Collection|ScarfUsage[] $scarfUsages
- * @property-read int|null $scarf_usages_count
+ * @property int                          $id
+ * @property string                       $name
+ * @property string                       $slug
+ * @property string|null                  $website
+ * @property string                       $city
+ * @property string                       $country
+ * @property string                       $founded_on
+ * @property string|null                  $cancelled_on
+ * @property int                          $association_id
+ * @property Carbon|null                  $created_at
+ * @property Carbon|null                  $updated_at
+ * @property-read Association             $association
+ * @property-read ScarfUsage|null         $currentScarfUsage
+ * @property-read Vote|null               $votes
+ * @property-read Collection|ScarfUsage[] $scarfUsages
+ * @property-read int|null                $scarf_usages_count
  */
 class ScoutGroup extends Model
 {
-    use HasFactory, HasSlug;
+    use HasFactory, HasSlug, HasSEO;
 
     protected $fillable = [
         'name', 'website', 'city', 'country', 'founded_on', 'cancelled_on', 'association_id',
@@ -127,5 +131,13 @@ class ScoutGroup extends Model
     public function currentScarfUsage(): HasOne
     {
         return $this->hasOne(ScarfUsage::class, '')->latestOfMany('introduced_on');
+    }
+
+    public function getDynamicSEOData(): SEOData
+    {
+        return new SEOData(
+            title: $this->name,
+            description: $this->city . ' in ' . $this->country,
+        );
     }
 }

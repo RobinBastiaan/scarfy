@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    {!! seo() !!}
 </head>
 <body>
 

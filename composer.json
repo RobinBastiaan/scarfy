@@ -8,8 +8,9 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.1",
         "ext-intl": "*",
+        "ext-json": "*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "jorenvanhocht/laravel-share": "^4.1",
@@ -18,9 +19,9 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "pragmarx/countries-laravel": "^0.7.0",
+        "ralphjsmit/laravel-seo": "^1.2",
         "spatie/laravel-demo-mode": "^2.7",
-        "spatie/laravel-sluggable": "^2.6",
-        "ext-json": "*"
+        "spatie/laravel-sluggable": "^2.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
@@ -80,7 +81,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
