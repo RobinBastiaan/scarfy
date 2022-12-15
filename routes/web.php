@@ -8,19 +8,15 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
 Route::get('/under-construction', static fn() => View::make('under-construction'));
-Route::demoAccess('/demo');
 
-//only users who have previously visited "/demo" will be able to see these pages.
-Route::group(['middleware' => 'demoMode'], static function () {
-    Route::get('/', LandingPageController::class)->name('landing_page');
-    Route::get('/about', static fn() => View::make('about'));
+Route::get('/', LandingPageController::class)->name('landing_page');
+Route::get('/about', static fn() => View::make('about'));
 
-    Route::resources([
-        'scarves' => ScarfController::class,
-        'groups'  => ScoutGroupController::class,
-        'votes'   => VoteController::class,
-    ]);
+Route::resources([
+    'scarves' => ScarfController::class,
+    'groups'  => ScoutGroupController::class,
+    'votes'   => VoteController::class,
+]);
 
-    Route::get('/scarves/{scarf}/add-group', [ScarfController::class, 'addGroup'])->name('scarves.add-group');
-    Route::post('/scarves/{scarf}/store-add-group', [ScarfController::class, 'storeAddGroup'])->name('scarves.store-add-group');
-});
+Route::get('/scarves/{scarf}/add-group', [ScarfController::class, 'addGroup'])->name('scarves.add-group');
+Route::post('/scarves/{scarf}/store-add-group', [ScarfController::class, 'storeAddGroup'])->name('scarves.store-add-group');

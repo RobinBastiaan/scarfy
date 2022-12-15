@@ -15,25 +15,24 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "jorenvanhocht/laravel-share": "^4.1",
         "laravel-lang/lang": "^10.1",
-        "laravel/framework": "^8.65",
+        "laravel/framework": "^9",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "pragmarx/countries-laravel": "^0.7.0",
         "ralphjsmit/laravel-seo": "^1.2",
-        "spatie/laravel-demo-mode": "^2.7",
-        "spatie/laravel-sluggable": "^2.6"
+        "spatie/laravel-sluggable": "^3.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
         "barryvdh/laravel-ide-helper": "^2.11",
         "beyondcode/laravel-query-detector": "^1.5",
-        "facade/ignition": "^2.5",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "glhd/laravel-dumper": "^1.0",
         "laravel/sail": "^1.0.1",
         "laravel/telescope": "^4.6",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^5.10",
+        "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
