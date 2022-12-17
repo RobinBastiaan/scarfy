@@ -20,6 +20,8 @@ use Illuminate\Support\Carbon;
  * @property-read Scarf          $scarf
  * @property-read ScarfUsageType $scarfUsageType
  * @property-read ScoutGroup     $scoutGroup
+ *
+ * @mixin Builder
  */
 class ScarfUsage extends Model
 {

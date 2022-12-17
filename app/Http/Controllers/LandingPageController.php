@@ -11,8 +11,8 @@ class LandingPageController extends Controller
     public function __invoke()
     {
         return view('landing-page', [
-            'totalScarves'      => Scarf::count(),
-            'totalScoutGroups'  => ScoutGroup::count(),
+            'totalScarves'      => Scarf::query()->count(),
+            'totalScoutGroups'  => ScoutGroup::query()->count(),
             'recentAdditions'   => ScoutGroup::recentAdditions()->get(),
             'showScoutScarfDay' => $this->shouldShowScoutScarfDay(),
         ]);

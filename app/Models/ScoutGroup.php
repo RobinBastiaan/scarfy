@@ -34,6 +34,12 @@ use Spatie\Sluggable\SlugOptions;
  * @property-read Vote|null               $votes
  * @property-read Collection|ScarfUsage[] $scarfUsages
  * @property-read int|null                $scarf_usages_count
+ *
+ * @method Builder recentAdditions(int $amount = 6)
+ * @method Builder neighboringGroups(ScoutGroup $group)
+ * @method Builder filter(Request $request)
+ *
+ * @mixin Builder
  */
 class ScoutGroup extends Model
 {

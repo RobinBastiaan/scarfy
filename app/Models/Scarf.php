@@ -38,6 +38,10 @@ use RalphJSmit\Laravel\SEO\Support\HasSEO;
  * @property-read Collection|ScarfUsage[] $scarfUsages
  * @property-read Vote|null               $votes
  * @property-read int|null                $scarf_usages_count
+ *
+ * @method Builder filter(Request $request)
+ *
+ * @mixin Builder
  */
 class Scarf extends Model
 {

@@ -65,8 +65,6 @@ class ScoutGroupController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\ScoutGroup $scoutGroup
      */
     public function edit(ScoutGroup $scoutGroup): View
     {
@@ -75,9 +73,6 @@ class ScoutGroupController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\ScoutGroup $scoutGroup
      */
     public function update(Request $request, ScoutGroup $scoutGroup): View
     {
@@ -86,8 +81,6 @@ class ScoutGroupController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param \App\Models\ScoutGroup $scoutGroup
      */
     public function destroy(ScoutGroup $scoutGroup): View
     {

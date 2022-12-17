@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -17,6 +18,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null          $created_at
  * @property Carbon|null          $updated_at
  * @property-read Model|\Eloquent $voteable
+ *
+ * @mixin Builder
  */
 class Vote extends Model
 {

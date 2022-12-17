@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null                  $updated_at
  * @property-read Collection|ScarfUsage[] $scarfUsages
  * @property-read int|null                $scarf_usages_count
+ *
+ * @mixin Builder
  */
 class ScarfUsageType extends Model
 {

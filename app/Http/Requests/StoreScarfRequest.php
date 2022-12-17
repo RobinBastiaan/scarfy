@@ -5,7 +5,11 @@ namespace App\Http\Requests;
 use App\Models\Scarf;
 use App\Rules\ColorOrPattern;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\UploadedFile;
 
+/**
+ * @property UploadedFile $image
+ */
 class StoreScarfRequest extends FormRequest
 {
     /**
