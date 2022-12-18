@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\Association;
+use Cache;
+use Config;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -13,6 +15,8 @@ class HomepageTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+
+        Config::set('cache.default', 'array');
 
         Association::factory()->create([
             'name'       => 'Scouting Nederland',
@@ -40,6 +44,8 @@ class HomepageTest extends TestCase
             'founded_on'     => '2000-01-01',
             'association_id' => Association::where('name', 'Scouting Nederland')->first()->id,
         ]);
+
+        Cache::flush();
 
         // check the new situation
         $response = $this->get('/');

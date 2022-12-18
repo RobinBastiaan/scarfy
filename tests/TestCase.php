@@ -15,9 +15,6 @@ abstract class TestCase extends BaseTestCase
     public function setUp(): void
     {
         parent::setUp();
-
-        // visit demo route to grant access to website to all test cases
-        $this->get('/demo');
     }
 
     /**
@@ -25,6 +22,7 @@ abstract class TestCase extends BaseTestCase
      */
     protected function addVisibleScoutGroup(array $scoutGroupData): ScoutGroup
     {
+        /** @var ScarfUsageType $scarfUsageType */
         $scarfUsageType = ScarfUsageType::factory()->create(['name' => 'group']);
         /** @var ScoutGroup $scoutGroup */
         $scoutGroup = ScoutGroup::create($scoutGroupData);
@@ -34,6 +32,7 @@ abstract class TestCase extends BaseTestCase
             ->withBorder(25, '#d0d7d7')
             ->withImage('png')
             ->create();
+
         /** @var ScarfUsage $scarfUsage */
         ScarfUsage::factory()->create([
             'scarf_id'            => $scarf->id,
