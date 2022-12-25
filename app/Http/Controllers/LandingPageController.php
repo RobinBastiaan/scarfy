@@ -11,7 +11,7 @@ class LandingPageController extends Controller
 {
     public function __invoke()
     {
-        $ttl = 3600;
+        $ttl = 60 * 60 * 24; // 1 day
 
         $totalScarves = Cache::remember('totalScarves', $ttl, fn() => Scarf::query()->count());
         $totalScoutGroups = Cache::remember('totalScoutGroups', $ttl, fn() => ScoutGroup::query()->count());

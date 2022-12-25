@@ -6,6 +6,7 @@ use App\Http\Requests\StoreScoutGroupRequest;
 use App\Models\ScoutGroup;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class ScoutGroupController extends Controller
@@ -42,6 +43,8 @@ class ScoutGroupController extends Controller
 
         $scoutGroup = ScoutGroup::create($validated);
 
+        $this->invalidateScoutGroupCaches();
+
         return redirect()->route('groups.show', $scoutGroup->name)
             ->with('success', __('Scouting Group added successfully. Scouting is everywhere!'));
     }
@@ -77,6 +80,8 @@ class ScoutGroupController extends Controller
     public function update(Request $request, ScoutGroup $scoutGroup): View
     {
         //
+
+        $this->invalidateScoutGroupCaches();
     }
 
     /**
@@ -85,5 +90,13 @@ class ScoutGroupController extends Controller
     public function destroy(ScoutGroup $scoutGroup): View
     {
         //
+
+        $this->invalidateScoutGroupCaches();
+    }
+
+    protected function invalidateScoutGroupCaches(): void
+    {
+        Cache::forget('totalScoutGroups');
+        Cache::forget('recentAdditions');
     }
 }

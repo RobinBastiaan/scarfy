@@ -9,6 +9,7 @@ use App\Models\ScarfUsage;
 use App\Models\ScoutGroup;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class ScarfController extends Controller
@@ -46,6 +47,8 @@ class ScarfController extends Controller
 
         $addedObject = Scarf::create($validated);
 
+        $this->invalidateScarfCaches();
+
         if ($request->has('image')) {
             $newImageName = $addedObject->id . '.' . $request->image->extension();
             $request->image->move(public_path('uploads'), $newImageName);
@@ -80,6 +83,8 @@ class ScarfController extends Controller
     public function update(Request $request, Scarf $scarf): View
     {
         //
+
+        $this->invalidateScarfCaches();
     }
 
     /**
@@ -88,6 +93,8 @@ class ScarfController extends Controller
     public function destroy(Scarf $scarf): View
     {
         //
+
+        $this->invalidateScarfCaches();
     }
 
     /**
@@ -115,7 +122,15 @@ class ScarfController extends Controller
         $scarfUsage->used_until = $validated['used_until'];
         $scarfUsage->save();
 
+        $this->invalidateScarfCaches();
+
         return redirect()->route('scarves.show', compact('scarf'))
             ->with('success', __('Scarf usage successfully. Populair scarf indeed!'));
+    }
+
+    protected function invalidateScarfCaches(): void
+    {
+        Cache::forget('totalScarves');
+        Cache::forget('recentAdditions');
     }
 }
